@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var request = require('request');
 var app = express();
+var company;
 job = "data science";
 location = "san francisco";
 
@@ -39,10 +40,10 @@ app.post('/webhook', function (req, res) {
 }, function(error, response, body) {
     var data = JSON.parse(body);
     console.log("data hopefully displayed:");
-
+    company = data.results[1].company;
     console.log(data.results[1].company);
 });
-            sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
+            sendMessage(event.sender.id, {text: "Echo: " + event.message.text + company});
           }
         }
     }
