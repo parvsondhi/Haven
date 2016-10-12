@@ -41,9 +41,10 @@ app.post('/webhook', function (req, res) {
     var data = JSON.parse(body);
     console.log("data hopefully displayed:");
     console.log(data.results[1].company);
-    sendMessage(event.sender.id, {text: "Echo: " + event.message.text + data.results[1].company});;
+    kittenMessage2(event.sender.id, data.results[1].company, data.results[2].company)
+    //sendMessage(event.sender.id, {text: "Echo: " + event.message.text + data.results[1].company});;
 });
-            //sendMessage(event.sender.id, {text: "Echo: " + event.message.text + company});
+            sendMessage(event.sender.id, {text: "Echo: " + event.message.text + company});
           }
         }
     }
@@ -103,6 +104,70 @@ function kittenMessage(recipientId, text) {
                           },
                           {
                             "title": "Kitten",
+                            "subtitle": "Cute kitten picture",
+                            "image_url": imageUrl ,
+                            "buttons": [{
+                                "type": "web_url",
+                                "url": imageUrl,
+                                "title": "Show kitten"
+                                }, {
+                                "type": "postback",
+                                "title": "I like this",
+                                "payload": "User " + recipientId + " likes kitten " + imageUrl,
+                    }],
+                  }
+
+
+                  ]
+                    }
+                }
+
+
+            };
+
+            sendMessage(recipientId, message);
+
+            return true;
+        }
+    }
+
+    return false;
+
+};
+
+
+// send rich message with kitten
+function kittenMessage2(recipientId, a, b) {
+
+    text = text || "";
+    var values = text.split(' ');
+
+    if (values.length === 3 && values[0] === 'kitten') {
+        if (Number(values[1]) > 0 && Number(values[2]) > 0) {
+
+            var imageUrl = "https://placekitten.com/" + Number(values[1]) + "/" + Number(values[2]);
+
+            message = {
+                "attachment": {
+                    "type": "template",
+                    "payload": {
+                        "template_type": "generic",
+                        "elements": [{
+                            "title": a,
+                            "subtitle": "Cute kitten picture",
+                            "image_url": imageUrl ,
+                            "buttons": [{
+                                "type": "web_url",
+                                "url": imageUrl,
+                                "title": "Show kitten"
+                                }, {
+                                "type": "postback",
+                                "title": "I like this",
+                                "payload": "User " + recipientId + " likes kitten " + imageUrl,
+                            }],
+                          },
+                          {
+                            "title": b,
                             "subtitle": "Cute kitten picture",
                             "image_url": imageUrl ,
                             "buttons": [{
