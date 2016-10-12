@@ -39,7 +39,8 @@ app.post('/webhook', function (req, res) {
 }, function(error, response, body) {
     var data = JSON.parse(body);
     console.log("data hopefully displayed:");
-    console.log(data);
+
+    console.log(data[0].jobtitle);
 });
             sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
           }
