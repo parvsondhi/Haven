@@ -44,7 +44,7 @@ app.post('/webhook', function (req, res) {
     kittenMessage2(event.sender.id, data.results[1].company, data.results[2].company)
     //sendMessage(event.sender.id, {text: "Echo: " + event.message.text + data.results[1].company});;
 });
-            sendMessage(event.sender.id, {text: "Echo: " + event.message.text + company});
+            //sendMessage(event.sender.id, {text: "Echo: " + event.message.text + company});
           }
         }
     }
