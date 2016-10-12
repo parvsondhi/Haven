@@ -32,7 +32,7 @@ app.post('/webhook', function (req, res) {
         if (event.message && event.message.text) {
           if (!kittenMessage(event.sender.id, event.message.text))
           {
-            request({
+            company = request({
     url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&format=json&limit=3&v=2',
     // url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&q=data%20science&l=san%20francisco&format=json&limit=3&v=2',
     method: 'GET',
@@ -40,9 +40,10 @@ app.post('/webhook', function (req, res) {
 }, function(error, response, body) {
     var data = JSON.parse(body);
     console.log("data hopefully displayed:");
-    console.log(data);
+    console.log(data.results[1].company);
+    return data.results[1].company;
 });
-            sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
+            sendMessage(event.sender.id, {text: "Echo: " + event.message.text + company});
           }
         }
     }
