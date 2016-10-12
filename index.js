@@ -36,14 +36,13 @@ app.post('/webhook', function (req, res) {
     url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&format=json&limit=3&v=2',
     // url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&q=data%20science&l=san%20francisco&format=json&limit=3&v=2',
     method: 'GET',
-    qs: {q: job, l:location},
+    qs: {q: job, l:event.message.text},
 }, function(error, response, body) {
     var data = JSON.parse(body);
     console.log("data hopefully displayed:");
-    company = data.results[1].company;
-    console.log(data.results[1].company);
+    console.log(data);
 });
-            sendMessage(event.sender.id, {text: "Echo: " + event.message.text + company});
+            sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
           }
         }
     }
