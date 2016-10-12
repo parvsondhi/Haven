@@ -40,7 +40,7 @@ app.post('/webhook', function (req, res) {
     var data = JSON.parse(body);
     console.log("data hopefully displayed:");
 
-    console.log(data.results[1]);
+    console.log(data.results[1].company);
 });
             sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
           }
