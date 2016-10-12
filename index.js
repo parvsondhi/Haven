@@ -139,13 +139,13 @@ function kittenMessage(recipientId, text) {
 // send rich message with kitten
 function kittenMessage2(recipientId, a, b) {
 
-    text = text || "";
-    var values = text.split(' ');
-
-    if (values.length === 3 && values[0] === 'kitten') {
-        if (Number(values[1]) > 0 && Number(values[2]) > 0) {
-
-            var imageUrl = "https://placekitten.com/" + Number(values[1]) + "/" + Number(values[2]);
+    // text = text || "";
+    // var values = text.split(' ');
+    //
+    // if (values.length === 3 && values[0] === 'kitten') {
+    //     if (Number(values[1]) > 0 && Number(values[2]) > 0) {
+    //
+             var imageUrl = "https://placekitten.com/" + Number(200) + "/" + Number(300);
 
             message = {
                 "attachment": {
@@ -192,9 +192,9 @@ function kittenMessage2(recipientId, a, b) {
             sendMessage(recipientId, message);
 
             return true;
-        }
-    }
-
-    return false;
+    //     }
+    // }
+    //
+    // return false;
 
 };
