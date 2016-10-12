@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/parvsondhi/Haven/issues"
   },
-  "homepage": "https://github.com/parvsondhi/Haven#readme"
+  "homepage": "https://github.com/parvsondhi/Haven#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "request": "^2.75.0"
+  }
 }
