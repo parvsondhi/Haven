@@ -2,6 +2,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var request = require('request');
 var app = express();
+job = "data science";
+location = "san francisco";
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -29,6 +31,16 @@ app.post('/webhook', function (req, res) {
         if (event.message && event.message.text) {
           if (!kittenMessage(event.sender.id, event.message.text))
           {
+            request({
+    url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&format=json&limit=3&v=2',
+    // url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&q=data%20science&l=san%20francisco&format=json&limit=3&v=2',
+    method: 'GET',
+    qs: {q: job, l:location},
+}, function(error, response, body) {
+    var data = JSON.parse(body);
+    console.log("data hopefully displayed:");
+    console.log(data);
+});
             sendMessage(event.sender.id, {text: "Echo: " + event.message.text});
           }
         }
