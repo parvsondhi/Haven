@@ -85,12 +85,33 @@ function kittenMessage(recipientId, text) {
                                 "type": "postback",
                                 "title": "I like this",
                                 "payload": "User " + recipientId + " likes kitten " + imageUrl,
-                            }]
-                        }]
+                            }],
+                          },
+                          {
+                    "title": "Chatbots FAQ",
+                    "subtitle": "Aking the Deep Questions",
+                    "image_url": "https://tctechcrunch2011.files.wordpress.com/...",
+                    "buttons": [{
+                        "type": "postback",
+                        "title": "What's the benefit?",
+                        "payload": "Chatbots make content interactive instead of static",
+                    },{
+                        "type": "postback",
+                        "title": "What can Chatbots do",
+                        "payload": "One day Chatbots will control the Internet of Things! You will be able to control your homes temperature with a text",
+                    }, {
+                        "type": "postback",
+                        "title": "The Future",
+                        "payload": "Chatbots are fun! One day your BFF might be a Chatbot",
+                    }],
+                  }
+
+
+                  ]
                     }
                 }
 
-                
+
             };
 
             sendMessage(recipientId, message);
