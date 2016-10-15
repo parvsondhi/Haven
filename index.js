@@ -68,8 +68,8 @@ app.post('/webhook', function (req, res) {
 var requestai = appai.textRequest("Hello");
 
 requestai.on('response', function(response) {
-  console.log(response)
-  console.log(response.fulfillment.speech);
+  //console.log(response)
+  console.log(response.result.fulfillment.speech);
 });
 
 requestai.on('error', function(error) {
