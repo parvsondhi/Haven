@@ -46,7 +46,9 @@ app.post('/webhook', function (req, res) {
 
             requestai.on('response', function(response) {
               //console.log(response)
-              console.log(response.result.fulfillment.speech);
+
+              //console.log(response.result.fulfillment.speech);
+              sendMessage(event.sender.id,response.result.fulfillment.speech)
             });
 
             requestai.on('error', function(error) {
@@ -55,7 +57,7 @@ app.post('/webhook', function (req, res) {
 
             requestai.end();
 
-            kittenMessage2(event.sender.id, "carlo", "parv")
+            //kittenMessage2(event.sender.id, "carlo", "parv")
 
             // request({
             //     url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&format=json&limit=3&v=2',
