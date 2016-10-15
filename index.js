@@ -32,13 +32,13 @@ app.get('/webhook', function (req, res) {
 // handler receiving messages
 app.post('/webhook', function (req, res) {
     var events = req.body.entry[0].messaging;
+    console.log("the entire list of events")
     console.log(events)
     console.log("iterating the loop")
     for (i = 0; i < events.length; i++) {
         var event = events[i];
         console.log("individual event " + event)
         if (event.message && event.message.text) {
-//comment
           if (!kittenMessage(event.sender.id, event.message.text))
           {
             request({
