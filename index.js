@@ -41,6 +41,17 @@ app.post('/webhook', function (req, res) {
         if (event.message && event.message.text) {
           if (!kittenMessage(event.sender.id, event.message.text))
           {
+            var requestai = appai.textRequest(event.message.text);
+
+            requestai.on('response', function(response) {
+              console.log(response.fulfillment.speech);
+          });
+
+          requestai.on('error', function(error) {
+             console.log(error);
+          });
+
+          requestai.end();
             kittenMessage2(event.sender.id, "carlo", "parv")
 
             // request({
