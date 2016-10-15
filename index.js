@@ -2,6 +2,11 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var request = require('request');
 var app = express();
+var apiai = require('apiai');
+var appai = apiai("c0f2b205eeaa485c8ec3b2172f750b2f");
+
+
+
 var company;
 job = "data science";
 location = "san francisco";
@@ -27,8 +32,11 @@ app.get('/webhook', function (req, res) {
 // handler receiving messages
 app.post('/webhook', function (req, res) {
     var events = req.body.entry[0].messaging;
+    console.log(events)
+    console.log("iterating the loop")
     for (i = 0; i < events.length; i++) {
         var event = events[i];
+        console.log("individual event " + event)
         if (event.message && event.message.text) {
           if (!kittenMessage(event.sender.id, event.message.text))
           {
