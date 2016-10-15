@@ -38,6 +38,7 @@ app.post('/webhook', function (req, res) {
         var event = events[i];
         console.log("individual event " + event)
         if (event.message && event.message.text) {
+//comment
           if (!kittenMessage(event.sender.id, event.message.text))
           {
             request({
