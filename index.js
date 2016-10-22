@@ -69,7 +69,7 @@ app.post('/webhook', function (req, res) {
               }
               else{
               //console.log(typeof response.result.fulfillment.speech);
-              sendMessage(event.sender.id,{text: replytext)
+              sendMessage(event.sender.id,{text: replytext})
             }
             });
 
