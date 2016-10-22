@@ -191,6 +191,24 @@ function kittenMessage(recipientId, text) {
 
 };
 
+function returnimage(companyname){
+  var imageurl = '';
+  request({
+  url: 'https://api.cognitive.microsoft.com/bing/v5.0/images/search?mkt=en-us',
+  method: 'GET',
+  dataType: "json",
+  headers: {'Ocp-Apim-Subscription-Key': '8f762e2427bb44eb8f4473d707575889'},
+  qs: {q: companyname}
+},function(error, response, body) {
+  var data = JSON.parse(body);
+  console.log("data hopefully displayed:");
+  console.log(data.value[0].thumbnailUrl)
+  imageurl = data.value[0].thumbnailUrl;
+});
+
+    return imageurl;
+
+}
 
 // send rich message with kitten
 function kittenMessage2(recipientId, company1, company2, company3, jobtitle1, jobtitle2, jobtitle3) {
@@ -201,6 +219,11 @@ function kittenMessage2(recipientId, company1, company2, company3, jobtitle1, jo
     // if (values.length === 3 && values[0] === 'kitten') {
     //     if (Number(values[1]) > 0 && Number(values[2]) > 0) {
     //
+company1_url = returnimage(company1);
+company2_url = returnimage(company2);
+company3_url = returnimage(company3);
+console.log("url")
+console.log(company1_url)
              var imageUrl = "https://placekitten.com/" + Number(200) + "/" + Number(300);
 
             message = {
@@ -211,7 +234,7 @@ function kittenMessage2(recipientId, company1, company2, company3, jobtitle1, jo
                         "elements": [{
                             "title": company1,
                             "subtitle": jobtitle1,
-                            "image_url": imageUrl ,
+                            "image_url": company1_url ,
                             "buttons": [{
                                 "type": "web_url",
                                 "url": imageUrl,
@@ -225,7 +248,7 @@ function kittenMessage2(recipientId, company1, company2, company3, jobtitle1, jo
                           {
                             "title": company2,
                             "subtitle": jobtitle2,
-                            "image_url": imageUrl ,
+                            "image_url": company2_url ,
                             "buttons": [{
                                 "type": "web_url",
                                 "url": imageUrl,
@@ -239,7 +262,7 @@ function kittenMessage2(recipientId, company1, company2, company3, jobtitle1, jo
                   {
                     "title": company3,
                     "subtitle": jobtitle3,
-                    "image_url": imageUrl ,
+                    "image_url": company3_url ,
                     "buttons": [{
                         "type": "web_url",
                         "url": imageUrl,
