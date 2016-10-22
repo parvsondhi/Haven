@@ -61,7 +61,7 @@ app.post('/webhook', function (req, res) {
                     console.log("data hopefully displayed:");
                     console.log(event.message.text)
                     console.log(data.results[1].company);
-                    sendMessage(event.sender.id,{text: replytext})
+                    //sendMessage(event.sender.id,{text: replytext})
                     kittenMessage2(event.sender.id, data.results[1].company, data.results[2].company)
                     //sendMessage(event.sender.id, {text: "Echo: " + event.message.text + data.results[1].company});;
                 });
