@@ -65,7 +65,7 @@ app.post('/webhook', function (req, res) {
                     console.log("is this is the issue")
                     console.log(replytext);
                     sendMessage(event.sender.id,{text: replytext})
-                    kittenMessage2(event.sender.id, data.results[1].company, data.results[2].company)
+                    kittenMessage2(event.sender.id, data.results[1].company, data.results[2].company, data.results[3].company, data.results[1].jobtitle, data.results[2].jobtitle, data.results[3].jobtitle )
                     //sendMessage(event.sender.id, {text: "Echo: " + event.message.text + data.results[1].company});;
                 });
 
@@ -193,7 +193,7 @@ function kittenMessage(recipientId, text) {
 
 
 // send rich message with kitten
-function kittenMessage2(recipientId, a, b) {
+function kittenMessage2(recipientId, company1, company2, company3, jobtitle1, jobtitle2, jobtitle3) {
 
     // text = text || "";
     // var values = text.split(' ');
@@ -209,8 +209,8 @@ function kittenMessage2(recipientId, a, b) {
                     "payload": {
                         "template_type": "generic",
                         "elements": [{
-                            "title": a,
-                            "subtitle": "Cute kitten picture",
+                            "title": company1,
+                            "subtitle": jobtitle1,
                             "image_url": imageUrl ,
                             "buttons": [{
                                 "type": "web_url",
@@ -223,8 +223,8 @@ function kittenMessage2(recipientId, a, b) {
                             }],
                           },
                           {
-                            "title": b,
-                            "subtitle": "Cute kitten picture",
+                            "title": company2,
+                            "subtitle": jobtitle2,
                             "image_url": imageUrl ,
                             "buttons": [{
                                 "type": "web_url",
@@ -235,7 +235,21 @@ function kittenMessage2(recipientId, a, b) {
                                 "title": "I like this",
                                 "payload": "User " + recipientId + " likes kitten " + imageUrl,
                     }],
-                  }
+                  },
+                  {
+                    "title": company3,
+                    "subtitle": jobtitle3,
+                    "image_url": imageUrl ,
+                    "buttons": [{
+                        "type": "web_url",
+                        "url": imageUrl,
+                        "title": "Show kitten"
+                        }, {
+                        "type": "postback",
+                        "title": "I like this",
+                        "payload": "User " + recipientId + " likes kitten " + imageUrl,
+            }],
+          }
 
 
                   ]
