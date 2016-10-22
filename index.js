@@ -47,6 +47,8 @@ app.post('/webhook', function (req, res) {
             requestai.on('response', function(response) {
               console.log("**********************************************************")
               console.log(response)
+              console.log(response.result.parameters.geocity)
+              console.log(response.result.fulfillment.jobrole)
 
               //console.log(typeof response.result.fulfillment.speech);
               sendMessage(event.sender.id,{text: response.result.fulfillment.speech})
