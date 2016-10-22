@@ -65,7 +65,7 @@ app.post('/webhook', function (req, res) {
                     console.log("is this is the issue")
                     console.log(replytext);
                     sendMessage(event.sender.id,{text: replytext})
-                    kittenMessage2(event.sender.id, data.results[1].company, data.results[2].company, data.results[3].company, data.results[1].jobtitle, data.results[2].jobtitle, data.results[3].jobtitle )
+                    kittenMessage2(event.sender.id, data.results[1].company, data.results[2].company, data.results[0].company, data.results[1].jobtitle, data.results[2].jobtitle, data.results[0].jobtitle )
                     //sendMessage(event.sender.id, {text: "Echo: " + event.message.text + data.results[1].company});;
                 });
 
