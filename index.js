@@ -65,7 +65,7 @@ app.post('/webhook', function (req, res) {
                     console.log("is this is the issue")
                     console.log(replytext);
                     sendMessage(event.sender.id,{text: replytext})
-                    kittenMessage2(event.sender.id, data.results[0].company, data.results[1].company, data.results[2].company, data.results[0].jobtitle, data.results[1].jobtitle, data.results[2].jobtitle, data.results[0].url,data.results[1].url,data.results[2].url )
+                    kittenMessage2(event.sender.id, data.results[0].company, data.results[1].company, data.results[2].company, data.results[0].jobtitle, data.results[1].jobtitle, data.results[2].jobtitle, data.results[0].url, data.results[1].url, data.results[2].url, data.results[0].snippet, data.results[1].snippet, data.results[2].snippet)
                     //sendMessage(event.sender.id, {text: "Echo: " + event.message.text + data.results[1].company});;
                 });
 
@@ -102,7 +102,7 @@ app.post('/webhook', function (req, res) {
         }
 
         else if(event.postback) {
-
+          //var requestai = appai.textRequest(event.postback.payload);
           console.log(event.postback.payload)
         }
 
@@ -160,8 +160,8 @@ function kittenMessage(recipientId, text) {
                                 "title": "Show kitten"
                                 }, {
                                 "type": "postback",
-                                "title": "I like this",
-                                "payload": "User " + recipientId + " likes kitten " + imageUrl,
+                                "title": "Show More",
+                                "payload": "Show More",
                             }],
                           },
                           {
@@ -174,8 +174,8 @@ function kittenMessage(recipientId, text) {
                                 "title": "Show kitten"
                                 }, {
                                 "type": "postback",
-                                "title": "I like this",
-                                "payload": "User " + recipientId + " likes kitten " + imageUrl,
+                                "title": "Show More",
+                                "payload": "Show More",
                     }],
                   }
 
@@ -217,7 +217,7 @@ function returnimage(companyname){
 }
 
 // send rich message with kitten
-function kittenMessage2(recipientId, company1, company2, company3, jobtitle1, jobtitle2, jobtitle3, url1, url2, url3) {
+function kittenMessage2(recipientId, company1, company2, company3, jobtitle1, jobtitle2, jobtitle3, url1, url2, url3, snippet1, snippet2, snippet3) {
 
     // text = text || "";
     // var values = text.split(' ');
@@ -247,8 +247,8 @@ console.log(company1_url)
                                 "title": "Apply Now"
                                 }, {
                                 "type": "postback",
-                                "title": "I like this",
-                                "payload": "User " + recipientId + " likes kitten " + imageUrl,
+                                "title": "Show More",
+                                "payload": snippet1,
                             }],
                           },
                           {
@@ -261,8 +261,8 @@ console.log(company1_url)
                                 "title": "Apply Now"
                                 }, {
                                 "type": "postback",
-                                "title": "I like this",
-                                "payload": "User " + recipientId + " likes kitten " + imageUrl,
+                                "title": "Show More",
+                                "payload": snippet2,
                     }],
                   },
                   {
@@ -275,8 +275,8 @@ console.log(company1_url)
                         "title": "Apply Now"
                         }, {
                         "type": "postback",
-                        "title": "I like this",
-                        "payload": "User " + recipientId + " likes kitten " + imageUrl,
+                        "title": "Show More",
+                        "payload": snippet3,
             }],
           }
 
