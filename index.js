@@ -234,7 +234,7 @@ console.log(company1_url)
                         "elements": [{
                             "title": company1,
                             "subtitle": jobtitle1,
-                            "image_url": company1_url ,
+                            "image_url": "icon.jpeg" ,
                             "buttons": [{
                                 "type": "web_url",
                                 "url": url1,
