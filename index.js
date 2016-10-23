@@ -103,7 +103,8 @@ app.post('/webhook', function (req, res) {
 
         else if(event.postback) {
           //var requestai = appai.textRequest(event.postback.payload);
-          console.log(event.postback.payload)
+          //console.log(event.postback.payload)
+          sendMessage(event.sender.id,{text: event.postback.payload})
         }
 
     }
