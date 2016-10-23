@@ -39,8 +39,8 @@ app.post('/webhook', function (req, res) {
         var event = events[i];
         console.log("individual event " + event)
         if (event.message && event.message.text) {
-          if (!kittenMessage(event.sender.id, event.message.text))
-          {
+          //if (!kittenMessage(event.sender.id, event.message.text))
+          //{
             console.log("hello " + event.message.text)
             var requestai = appai.textRequest(event.message.text);
 
@@ -81,24 +81,7 @@ app.post('/webhook', function (req, res) {
             });
 
             requestai.end();
-
-            //kittenMessage2(event.sender.id, "carlo", "parv")
-
-            // request({
-            //     url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&format=json&limit=3&v=2',
-            //     // url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&q=data%20science&l=san%20francisco&format=json&limit=3&v=2',
-            //     method: 'GET',
-            //     qs: {q: job, l:event.message.text},
-            // }, function(error, response, body) {
-            //     var data = JSON.parse(body);
-            //     console.log("data hopefully displayed:");
-            //     console.log(event.message.text)
-            //     console.log(data.results[1].company);
-            //     kittenMessage2(event.sender.id, data.results[1].company, data.results[2].company)
-            //     //sendMessage(event.sender.id, {text: "Echo: " + event.message.text + data.results[1].company});;
-            // });
-            //sendMessage(event.sender.id, {text: "Echo: " + event.message.text + company});
-          }
+          //}
         }
 
         else if(event.postback) {
