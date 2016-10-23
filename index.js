@@ -100,6 +100,12 @@ app.post('/webhook', function (req, res) {
             //sendMessage(event.sender.id, {text: "Echo: " + event.message.text + company});
           }
         }
+
+        else if(event.postback) {
+
+          console.log("RECEIVED POSTBACK")
+        }
+
     }
     res.sendStatus(200);
 });
