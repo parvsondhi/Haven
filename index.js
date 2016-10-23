@@ -65,7 +65,7 @@ app.post('/webhook', function (req, res) {
                     console.log("is this is the issue")
                     console.log(replytext);
                     sendMessage(event.sender.id,{text: replytext})
-                    kittenMessage2(event.sender.id, data.results[1].company, data.results[2].company, data.results[0].company, data.results[1].jobtitle, data.results[2].jobtitle, data.results[0].jobtitle )
+                    kittenMessage2(event.sender.id, data.results[0].company, data.results[1].company, data.results[2].company, data.results[0].jobtitle, data.results[1].jobtitle, data.results[2].jobtitle, data.results[0].url,data.results[1].url,data.results[2].url )
                     //sendMessage(event.sender.id, {text: "Echo: " + event.message.text + data.results[1].company});;
                 });
 
@@ -201,8 +201,8 @@ function returnimage(companyname){
   qs: {q: companyname}
 },function(error, response, body) {
   var data = JSON.parse(body);
-  console.log("data hopefully displayed:");
-  console.log(data.value[0].thumbnailUrl)
+  //console.log("data hopefully displayed:");
+  //console.log(data.value[0].thumbnailUrl)
   imageurl = data.value[0].thumbnailUrl;
 });
 
@@ -211,7 +211,7 @@ function returnimage(companyname){
 }
 
 // send rich message with kitten
-function kittenMessage2(recipientId, company1, company2, company3, jobtitle1, jobtitle2, jobtitle3) {
+function kittenMessage2(recipientId, company1, company2, company3, jobtitle1, jobtitle2, jobtitle3, url1, url2, url3) {
 
     // text = text || "";
     // var values = text.split(' ');
@@ -237,8 +237,8 @@ console.log(company1_url)
                             "image_url": company1_url ,
                             "buttons": [{
                                 "type": "web_url",
-                                "url": imageUrl,
-                                "title": "Show kitten"
+                                "url": url1,
+                                "title": "Apply Now"
                                 }, {
                                 "type": "postback",
                                 "title": "I like this",
@@ -251,8 +251,8 @@ console.log(company1_url)
                             "image_url": company2_url ,
                             "buttons": [{
                                 "type": "web_url",
-                                "url": imageUrl,
-                                "title": "Show kitten"
+                                "url": url2,
+                                "title": "Apply Now"
                                 }, {
                                 "type": "postback",
                                 "title": "I like this",
@@ -265,8 +265,8 @@ console.log(company1_url)
                     "image_url": company3_url ,
                     "buttons": [{
                         "type": "web_url",
-                        "url": imageUrl,
-                        "title": "Show kitten"
+                        "url": url3,
+                        "title": "Apply Now"
                         }, {
                         "type": "postback",
                         "title": "I like this",
