@@ -95,6 +95,9 @@ app.post('/webhook', function (req, res) {
 
           var regex = /(<([^>]+)>)|(\s&amp)/ig;
           result = event.postback.payload.replace(regex, "");
+          if(event.postback.title == "Show Job Summary"){
+            console.log("job summary postback")
+          }
           sendMessage(event.sender.id,{text: result})
         }
 
@@ -237,7 +240,7 @@ var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/purple_postback
                   {
                     "title": company3,
                     "subtitle": jobtitle3,
-                    "image_url": imageurl3 ,
+                    "image_url": imageurl2 ,
                     "buttons": [{
                         "type": "web_url",
                         "url": url3,
