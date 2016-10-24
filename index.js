@@ -95,9 +95,9 @@ app.post('/webhook', function (req, res) {
 
           var regex = /(<([^>]+)>)|(\s&amp)/ig;
           result = event.postback.payload.replace(regex, "");
-          if(event.postback.title == "Show Job Summary"){
-            console.log("job summary postback")
-          }
+          // if(event.postback.title == "Show Job Summary")
+            console.log(event.postback.title)
+
           sendMessage(event.sender.id,{text: result})
         }
 
