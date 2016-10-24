@@ -163,7 +163,7 @@ app.post('/webhook', function (req, res) {
           console.log(locationtobesearched)
           replytext = event.sender.id
           request({
-              url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&format=json&limit=3&v=2',
+              url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&format=json&limit=20&v=2',
               // url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&q=data%20science&l=san%20francisco&format=json&limit=3&v=2',
               method: 'GET',
               replytext: replytext,
@@ -177,7 +177,11 @@ app.post('/webhook', function (req, res) {
               console.log(data.results[1].company);
               console.log("is this is the issue")
               //console.log(replytext);
-              kittenMessage2(replytext, data.results[0].company, data.results[1].company, data.results[2].company, data.results[0].jobtitle, data.results[1].jobtitle, data.results[2].jobtitle, data.results[0].url, data.results[1].url, data.results[2].url, data.results[0].snippet, data.results[1].snippet, data.results[2].snippet,rolesend, locsend)
+              random_numbers = findrandom();
+              i = random_numbers[0]
+              j = random_numbers[1]
+              k = random_numbers[2]
+              kittenMessage2(replytext, data.results[i].company, data.results[j].company, data.results[k].company, data.results[i].jobtitle, data.results[j].jobtitle, data.results[k].jobtitle, data.results[i].url, data.results[j].url, data.results[k].url, data.results[i].snippet, data.results[j].snippet, data.results[k].snippet,rolesend, locsend)
 
           });
 
