@@ -265,9 +265,7 @@ console.log("url")
                                 }, {
                                 "type": "postback",
                                 "title": "Show Job Summary",
-                                "payload": {
-                                  "jobsummary" : snippet1
-                                },
+                                "payload":snippet1,
                             }],
                           },
                           {
@@ -281,9 +279,7 @@ console.log("url")
                                 }, {
                                 "type": "postback",
                                 "title": "Show Job Summary",
-                                "payload": {
-                                  "jobsummary" : snippet2
-                                },
+                                "payload": snippet2,
                     }],
                   },
                   {
@@ -297,9 +293,7 @@ console.log("url")
                         }, {
                         "type": "postback",
                         "title": "Show Job Summary",
-                        "payload": {
-                          "jobsummary" : snippet3
-                        },
+                        "payload": snippet3,
             }],
           }
 
