@@ -148,7 +148,7 @@ function sendButtonMessage(recipientId,message) {
         "type": "template",
         "payload": {
           "template_type": "button",
-          "text": message
+          "text": message,
           "buttons":[{
             "type": "postback",
             "title": "Sure",
