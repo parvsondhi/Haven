@@ -65,7 +65,7 @@ app.post('/webhook', function (req, res) {
                     console.log("is this is the issue")
                     console.log(replytext);
                     sendMessage(event.sender.id,{text: replytext})
-                    kittenMessage2(event.sender.id, data.results[0].company, data.results[1].company, data.results[2].company, data.results[0].jobtitle, data.results[1].jobtitle, data.results[2].jobtitle, data.results[0].url, data.results[1].url, data.results[2].url, data.results[0].snippet, data.results[1].snippet, data.results[2].snippet)
+                    kittenMessage2(event.sender.id, data.results[0].company, data.results[1].company, data.results[2].company, data.results[0].jobtitle, data.results[1].jobtitle, data.results[2].jobtitle, data.results[0].url, data.results[1].url, data.results[2].url, data.results[0].snippet, data.results[1].snippet, data.results[2].snippet,response.result.parameters.geocity, response.result.parameters.role)
                     //sendMessage(event.sender.id, {text: "Echo: " + event.message.text + data.results[1].company});;
                 });
 
@@ -101,7 +101,30 @@ app.post('/webhook', function (req, res) {
           // if(event.postback.title == "Show Job Summary")
 
           //sendMessage(event.sender.id,{text: result})
-          sendButtonMessage2(event.sender.id,result,newstring[2])
+          sendButtonMessage2(event.sender.id,result,newstring[2],newstring[3],newstring[4])
+
+        }
+        else if (!(newstring[1].localeCompare("findmore"))) {
+          var roletobesearched = newstring[2];
+          var locationtobesearched = newstring[3];
+          request({
+              url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&format=json&limit=3&v=2',
+              // url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&q=data%20science&l=san%20francisco&format=json&limit=3&v=2',
+              method: 'GET',
+              replytext: event.sender.id,
+              rolesend: roletobesearched,
+              locsend: locationtobesearched,
+              qs: {q: roletobesearched, l:locationtobesearched},
+          }, function(error, response, body) {
+              var data = JSON.parse(body);
+              console.log("data hopefully displayed:");
+              //console.log(event.message.text)
+              console.log(data.results[1].company);
+              console.log("is this is the issue")
+              //console.log(replytext);
+              kittenMessage2(replytext, data.results[0].company, data.results[1].company, data.results[2].company, data.results[0].jobtitle, data.results[1].jobtitle, data.results[2].jobtitle, data.results[0].url, data.results[1].url, data.results[2].url, data.results[0].snippet, data.results[1].snippet, data.results[2].snippet,rolesend, locsend)
+
+          });
 
         }
         else {
@@ -155,7 +178,7 @@ function sendMessage(recipientId, message) {
 // };
 
 
-function sendButtonMessage2(recipientId,message,urlvalue) {
+function sendButtonMessage2(recipientId,message,urlvalue,role,location) {
    messageData = {
       "attachment": {
         "type": "template",
@@ -166,6 +189,10 @@ function sendButtonMessage2(recipientId,message,urlvalue) {
             "type": "web_url",
             "url": urlvalue,
             "title": "Apply Now"
+          }, {
+            "type": "postback",
+            "title": "Find More",
+            "payload": "emptys_tfindmores_t" + role + "s_t" + location
           }]
         }
       }
@@ -217,7 +244,7 @@ function returnimage(companyname){
 }
 
 // send rich message with kitten
-function kittenMessage2(recipientId, company1, company2, company3, jobtitle1, jobtitle2, jobtitle3, url1, url2, url3, snippet1, snippet2, snippet3) {
+function kittenMessage2(recipientId, company1, company2, company3, jobtitle1, jobtitle2, jobtitle3, url1, url2, url3, snippet1, snippet2, snippet3, jobrole, location) {
 
     // text = text || "";
     // var values = text.split(' ');
@@ -248,7 +275,7 @@ var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_g
                                 }, {
                                 "type": "postback",
                                 "title": "Show Job Summary",
-                                "payload":snippet1 + "s_t" + "jobsummary" + "s_t" + url1,
+                                "payload":snippet1 + "s_t" + "jobsummary" + "s_t" + url1 + "s_t" + jobrole + "s_t" + location,
                             }],
                           },
                           {
