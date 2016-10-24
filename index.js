@@ -303,7 +303,7 @@ var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_g
                                 }, {
                                 "type": "postback",
                                 "title": "Show Job Summary",
-                                "payload": snippet2 + "s_t" + "jobsummary" + "s_t" + url2,
+                                "payload": snippet2 + "s_t" + "jobsummary" + "s_t" + url2 + "s_t" + jobrole + "s_t" + location,
                     }],
                   },
                   {
@@ -317,7 +317,7 @@ var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_g
                         }, {
                         "type": "postback",
                         "title": "Show Job Summary",
-                        "payload": snippet3 + "s_t" + "jobsummary" + "s_t" + url3,
+                        "payload": snippet3 + "s_t" + "jobsummary" + "s_t" + url3 + "s_t" + jobrole + "s_t" + location,
             }],
           }
 
