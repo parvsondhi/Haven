@@ -199,8 +199,8 @@ company2_url = returnimage(company2);
 company3_url = returnimage(company3);
 console.log("url")
 var imageurl1 = "https://s3-us-west-1.amazonaws.com/havenchatbot/green_postback_greyKoala-01.png";
-var imageurl1 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_pinkKoala-01.png";
-var imageurl1 = "https://s3-us-west-1.amazonaws.com/havenchatbot/purple_postback_greyKoala-01.png";
+var imageurl2 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_pinkKoala-01.png";
+var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/purple_postback_greyKoala-01.png";
             message = {
                 "attachment": {
                     "type": "template",
@@ -209,7 +209,7 @@ var imageurl1 = "https://s3-us-west-1.amazonaws.com/havenchatbot/purple_postback
                         "elements": [{
                             "title": company1,
                             "subtitle": jobtitle1,
-                            "image_url": imageurlnew ,
+                            "image_url": imageurl1 ,
                             "buttons": [{
                                 "type": "web_url",
                                 "url": url1,
@@ -223,7 +223,7 @@ var imageurl1 = "https://s3-us-west-1.amazonaws.com/havenchatbot/purple_postback
                           {
                             "title": company2,
                             "subtitle": jobtitle2,
-                            "image_url": imageurlnew ,
+                            "image_url": imageurl2 ,
                             "buttons": [{
                                 "type": "web_url",
                                 "url": url2,
@@ -237,7 +237,7 @@ var imageurl1 = "https://s3-us-west-1.amazonaws.com/havenchatbot/purple_postback
                   {
                     "title": company3,
                     "subtitle": jobtitle3,
-                    "image_url": imageurlnew ,
+                    "image_url": imageurl3 ,
                     "buttons": [{
                         "type": "web_url",
                         "url": url3,
