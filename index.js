@@ -250,7 +250,7 @@ function sendButtonMessage2(recipientId,message,urlvalue,role,location) {
             "title": "Apply Now"
           }, {
             "type": "postback",
-            "title": "Find More",
+            "title": "Show More Jobs",
             "payload": "emptys_tfindmores_t" + role + "s_t" + location
           }]
         }
@@ -333,7 +333,11 @@ var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_g
                                 "type": "postback",
                                 "title": "Show Job Summary",
                                 "payload":snippet1 + "s_t" + "jobsummary" + "s_t" + url1 + "s_t" + jobrole + "s_t" + location,
-                            }],
+                            }, {
+                            "type": "postback",
+                            "title": "Show More Jobs",
+                            "payload":"emptys_tfindmores_t" + jobrole + "s_t" + location,
+                        }],
                           },
                           {
                             "title": company2,
@@ -347,7 +351,11 @@ var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_g
                                 "type": "postback",
                                 "title": "Show Job Summary",
                                 "payload": snippet2 + "s_t" + "jobsummary" + "s_t" + url2 + "s_t" + jobrole + "s_t" + location,
-                    }],
+                    }, {
+                    "type": "postback",
+                    "title": "Show More Jobs",
+                    "payload":"emptys_tfindmores_t" + jobrole + "s_t" + location,
+                }],
                   },
                   {
                     "title": company3,
@@ -361,7 +369,11 @@ var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_g
                         "type": "postback",
                         "title": "Show Job Summary",
                         "payload": snippet3 + "s_t" + "jobsummary" + "s_t" + url3 + "s_t" + jobrole + "s_t" + location,
-            }],
+            }, {
+            "type": "postback",
+            "title": "Show More Jobs",
+            "payload":"emptys_tfindmores_t" + jobrole + "s_t" + location,
+        }],
           }
 
 
