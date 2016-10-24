@@ -208,9 +208,9 @@ company1_url = returnimage(company1);
 company2_url = returnimage(company2);
 company3_url = returnimage(company3);
 console.log("url")
-var imageurl1 = "https://s3-us-west-1.amazonaws.com/havenchatbot/green_postback_greyKoala-01.png";
-var imageurl2 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_pinkKoala-01.png";
-var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/purple_postback_greyKoala-01.png";
+var imageurl2 = "https://s3-us-west-1.amazonaws.com/havenchatbot/green_postback_greyKoala-01.png";
+var imageurl1 = "https://s3-us-west-1.amazonaws.com/havenchatbot/purple_postback_pinkKoala-01.png";
+var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_greyKoala-01.png";
             message = {
                 "attachment": {
                     "type": "template",
