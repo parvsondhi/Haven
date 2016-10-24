@@ -95,7 +95,7 @@ app.post('/webhook', function (req, res) {
           var newstring = event.postback.payload.split("s_t")
           console.log(newstring[0])
           console.log(newstring[1])
-          if not(newstring[1].localeCompare("jobsummary")){
+          if(!(newstring[1].localeCompare("jobsummary"))){
           var regex = /(<([^>]+)>)|(\s&amp)/ig;
           result = newstring[0].replace(regex, "");
           // if(event.postback.title == "Show Job Summary")
