@@ -111,6 +111,8 @@ app.post('/webhook', function (req, res) {
         else if (!(newstring[1].localeCompare("findmore"))) {
           var roletobesearched = newstring[2];
           var locationtobesearched = newstring[3];
+          console.log(roletobesearched)
+          console.log(locationtobesearched)
           request({
               url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&format=json&limit=3&v=2',
               // url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&q=data%20science&l=san%20francisco&format=json&limit=3&v=2',
