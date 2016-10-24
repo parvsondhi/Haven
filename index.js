@@ -93,13 +93,17 @@ app.post('/webhook', function (req, res) {
         else if(event.postback) {
           //var requestai = appai.textRequest(event.postback.payload);
           var newstring = event.postback.payload.split("s_t")
+          if(newstring[1].localeCompare("jobsummary")){
           var regex = /(<([^>]+)>)|(\s&amp)/ig;
           result = newstring[0].replace(regex, "");
-          console.log(newstring[1]);
           // if(event.postback.title == "Show Job Summary")
-            console.log(event.postback)
 
           sendMessage(event.sender.id,{text: result})
+        }
+        else {
+          console.log("normal")
+          sendMessage(event.sender.id, {text: newstring[0]})
+        }
         }
 
     }
@@ -221,7 +225,7 @@ var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/purple_postback
                                 }, {
                                 "type": "postback",
                                 "title": "Show Job Summary",
-                                "payload":snippet1 + " s_t " + "jobsummary",
+                                "payload":snippet1 + "s_t" + "jobsummary",
                             }],
                           },
                           {
@@ -235,7 +239,7 @@ var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/purple_postback
                                 }, {
                                 "type": "postback",
                                 "title": "Show Job Summary",
-                                "payload": snippet2,
+                                "payload": snippet2 + "s_t" + "jobsummary",
                     }],
                   },
                   {
@@ -249,7 +253,7 @@ var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/purple_postback
                         }, {
                         "type": "postback",
                         "title": "Show Job Summary",
-                        "payload": snippet3,
+                        "payload": snippet3 + "s_t" + "jobsummary",
             }],
           }
 
