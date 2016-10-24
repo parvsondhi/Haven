@@ -87,7 +87,7 @@ app.post('/webhook', function (req, res) {
         else if(event.postback) {
           //var requestai = appai.textRequest(event.postback.payload);
           var regex = /(<([^>]+)>)|(\s&amp)/ig;
-          result = event.postback.payload.replace(regex, "");
+          result = event.postback.payload.jobsummary.replace(regex, "");
           sendMessage(event.sender.id,{text: result})
         }
 
@@ -264,8 +264,10 @@ console.log("url")
                                 "title": "Apply Now"
                                 }, {
                                 "type": "postback",
-                                "title": "Show More",
-                                "payload": snippet1,
+                                "title": "Show Job Summary",
+                                "payload": {
+                                  "jobsummary" : snippet1
+                                },
                             }],
                           },
                           {
@@ -278,8 +280,10 @@ console.log("url")
                                 "title": "Apply Now"
                                 }, {
                                 "type": "postback",
-                                "title": "Show More",
-                                "payload": snippet2,
+                                "title": "Show Job Summary",
+                                "payload": {
+                                  "jobsummary" : snippet2
+                                },
                     }],
                   },
                   {
@@ -292,8 +296,10 @@ console.log("url")
                         "title": "Apply Now"
                         }, {
                         "type": "postback",
-                        "title": "Show More",
-                        "payload": snippet3,
+                        "title": "Show Job Summary",
+                        "payload": {
+                          "jobsummary" : snippet3
+                        },
             }],
           }
 
