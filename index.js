@@ -122,11 +122,12 @@ app.post('/webhook', function (req, res) {
           var locationtobesearched = newstring[3];
           console.log(roletobesearched)
           console.log(locationtobesearched)
+          replytext = event.sender.id
           request({
               url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&format=json&limit=3&v=2',
               // url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&q=data%20science&l=san%20francisco&format=json&limit=3&v=2',
               method: 'GET',
-              replytext: event.sender.id,
+              replytext: replytext,
               rolesend: roletobesearched,
               locsend: locationtobesearched,
               qs: {q: roletobesearched, l:locationtobesearched},
