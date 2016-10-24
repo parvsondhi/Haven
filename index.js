@@ -247,7 +247,7 @@ var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_g
                   {
                     "title": company3,
                     "subtitle": jobtitle3,
-                    "image_url": imageurl2 ,
+                    "image_url": imageurl3 ,
                     "buttons": [{
                         "type": "web_url",
                         "url": url3,
