@@ -153,11 +153,11 @@ function sendButtonMessage(recipientId,message) {
           "buttons":[{
             "type": "postback",
             "title": "Sure",
-            "payload": "DEVELOPED_DEFINED_PAYLOAD"
+            "payload": "Coolio! Let's start by picking your city."
           }, {
             "type": "postback",
             "title": "Not Today",
-            "payload": "That's alright. Gotta clean up Siri's mess anyway. I'll be around."
+            "payload": "That's alright. Gotta clean up Siri's mess anyway. I'll be around!"
           }]
         }
       }
@@ -198,9 +198,9 @@ company1_url = returnimage(company1);
 company2_url = returnimage(company2);
 company3_url = returnimage(company3);
 console.log("url")
-//console.log(company1_url)
-             var imageUrl = "https://placekitten.com/" + Number(200) + "/" + Number(300);
-var imageurlnew = "https://s3-us-west-1.amazonaws.com/havenchatbot/green_postback_greyKoala-01.png";
+var imageurl1 = "https://s3-us-west-1.amazonaws.com/havenchatbot/green_postback_greyKoala-01.png";
+var imageurl1 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_pinkKoala-01.png";
+var imageurl1 = "https://s3-us-west-1.amazonaws.com/havenchatbot/purple_postback_greyKoala-01.png";
             message = {
                 "attachment": {
                     "type": "template",
