@@ -144,30 +144,25 @@ function sendMessage2(message) {
 
 function sendButtonMessage(recipientId,message) {
    messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      attachment: {
-        type: "template",
-        payload: {
-          template_type: "button",
-          text: message
-          buttons:[{
-            type: "postback",
-            title: "Sure",
-            payload: "DEVELOPED_DEFINED_PAYLOAD"
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "button",
+          "text": message
+          "buttons":[{
+            "type": "postback",
+            "title": "Sure",
+            "payload": "DEVELOPED_DEFINED_PAYLOAD"
           }, {
-            type: "postback",
-            title: "Not Today",
-            payload: "DEVELOPED_DEFINED_PAYLOAD"
+            "type": "postback",
+            "title": "Not Today",
+            "payload": "DEVELOPED_DEFINED_PAYLOAD"
           }]
         }
       }
-    }
-  };
+    };
 
-  sendMessage2(messageData);
+  sendMessage(recipientId,messageData);
 }
 
 function returnimage(companyname){
