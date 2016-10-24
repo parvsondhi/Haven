@@ -70,6 +70,12 @@ app.post('/webhook', function (req, res) {
                 });
 
               }
+
+              else if(response.result.parameters.No){
+                sendButtonMessage(event.sender.id,{text: replytext})
+
+
+              }
               else{
               //console.log(typeof response.result.fulfillment.speech);
               sendMessage(event.sender.id,{text: replytext})
@@ -119,99 +125,29 @@ function sendMessage(recipientId, message) {
 };
 
 
-// send rich message with kitten
-// function kittenMessage(recipientId, text) {
-//
-//     text = text || "";
-//     var values = text.split(' ');
-//
-//     if (values.length === 3 && values[0] === 'kitten') {
-//         if (Number(values[1]) > 0 && Number(values[2]) > 0) {
-//
-//             var imageUrl = "https://placekitten.com/" + Number(values[1]) + "/" + Number(values[2]);
-//
-//             message = {
-//                 "attachment": {
-//                     "type": "template",
-//                     "payload": {
-//                         "template_type": "generic",
-//                         "elements": [{
-//                             "title": "Kitten",
-//                             "subtitle": "Cute kitten picture",
-//                             "image_url": imageUrl ,
-//                             "buttons": [{
-//                                 "type": "web_url",
-//                                 "url": imageUrl,
-//                                 "title": "Show kitten"
-//                                 }, {
-//                                 "type": "postback",
-//                                 "title": "Show More",
-//                                 "payload": "Show More",
-//                             }],
-//                           },
-//                           {
-//                             "title": "Kitten",
-//                             "subtitle": "Cute kitten picture",
-//                             "image_url": imageUrl ,
-//                             "buttons": [{
-//                                 "type": "web_url",
-//                                 "url": imageUrl,
-//                                 "title": "Show kitten"
-//                                 }, {
-//                                 "type": "postback",
-//                                 "title": "Show More",
-//                                 "payload": "Show More",
-//                     }],
-//                   }
-//
-//
-//                   ]
-//                     }
-//                 }
-//
-//
-//             };
-//
-//             sendMessage(recipientId, message);
-//
-//             return true;
-//         }
-//     }
-//
-//     return false;
-//
-// };
 
-function sendButtonMessage(recipientId) {
+
+function sendButtonMessage(recipientId,message) {
   var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
       attachment: {
         type: "template",
         payload: {
           template_type: "button",
-          text: "This is test text",
+          text: message
           buttons:[{
-            type: "web_url",
-            url: "https://www.oculus.com/en-us/rift/",
-            title: "Open Web URL"
-          }, {
             type: "postback",
-            title: "Trigger Postback",
+            title: "Sure",
             payload: "DEVELOPED_DEFINED_PAYLOAD"
           }, {
-            type: "phone_number",
-            title: "Call Phone Number",
-            payload: "+16505551234"
+            type: "postback",
+            title: "Not Today",
+            payload: "DEVELOPED_DEFINED_PAYLOAD"
           }]
         }
       }
-    }
-  };
+    };
 
-  callSendAPI(messageData);
+  sendMessage(recipientId, messageData);
 }
 
 function returnimage(companyname){
