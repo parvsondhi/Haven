@@ -100,7 +100,9 @@ app.post('/webhook', function (req, res) {
           result = newstring[0].replace(regex, "");
           // if(event.postback.title == "Show Job Summary")
 
-          sendMessage(event.sender.id,{text: result})
+          //sendMessage(event.sender.id,{text: result})
+          sendButtonMessage2(event.sender.id,result,newstring[2])
+
         }
         else {
           console.log("normal")
@@ -153,7 +155,26 @@ function sendMessage(recipientId, message) {
 // };
 
 
-function sendButtonMessage(recipientId,message) {
+function sendButtonMessage2(recipientId,message,urlvalue) {
+   messageData = {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "button",
+          "text": message,
+          "buttons":[{
+            "type": "web_url",
+            "url": urlvalue,
+            "title": "Apply Now"
+          }]
+        }
+      }
+    };
+
+  sendMessage(recipientId,messageData);
+}
+
+function sendButtonMessage1(recipientId,message) {
    messageData = {
       "attachment": {
         "type": "template",
@@ -227,7 +248,7 @@ var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_g
                                 }, {
                                 "type": "postback",
                                 "title": "Show Job Summary",
-                                "payload":snippet1 + "s_t" + "jobsummary",
+                                "payload":snippet1 + "s_t" + "jobsummary" + "s_t" + url1,
                             }],
                           },
                           {
@@ -241,7 +262,7 @@ var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_g
                                 }, {
                                 "type": "postback",
                                 "title": "Show Job Summary",
-                                "payload": snippet2 + "s_t" + "jobsummary",
+                                "payload": snippet2 + "s_t" + "jobsummary" + "s_t" + url2,
                     }],
                   },
                   {
@@ -255,7 +276,7 @@ var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_g
                         }, {
                         "type": "postback",
                         "title": "Show Job Summary",
-                        "payload": snippet3 + "s_t" + "jobsummary",
+                        "payload": snippet3 + "s_t" + "jobsummary" + "s_t" + url3,
             }],
           }
 
