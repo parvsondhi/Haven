@@ -93,6 +93,8 @@ app.post('/webhook', function (req, res) {
         else if(event.postback) {
           //var requestai = appai.textRequest(event.postback.payload);
           var newstring = event.postback.payload.split("s_t")
+          console.log(newstring[0])
+          console.log(newstring[1])
           if(newstring[1].localeCompare("jobsummary")){
           var regex = /(<([^>]+)>)|(\s&amp)/ig;
           result = newstring[0].replace(regex, "");
