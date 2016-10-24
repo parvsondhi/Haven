@@ -92,8 +92,9 @@ app.post('/webhook', function (req, res) {
 
         else if(event.postback) {
           //var requestai = appai.textRequest(event.postback.payload);
+
           var regex = /(<([^>]+)>)|(\s&amp)/ig;
-          result = event.postback.payload.jobsummary.replace(regex, "");
+          result = event.postback.payload.replace(regex, "");
           sendMessage(event.sender.id,{text: result})
         }
 
@@ -156,7 +157,7 @@ function sendButtonMessage(recipientId,message) {
           }, {
             "type": "postback",
             "title": "Not Today",
-            "payload": "DEVELOPED_DEFINED_PAYLOAD"
+            "payload": "That's alright. Gotta clean up Siri's mess anyway. I'll be around."
           }]
         }
       }
