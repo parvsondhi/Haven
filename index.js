@@ -242,9 +242,9 @@ function kittenMessage2(recipientId, company1, company2, company3, jobtitle1, jo
     // if (values.length === 3 && values[0] === 'kitten') {
     //     if (Number(values[1]) > 0 && Number(values[2]) > 0) {
     //
-//company1_url = returnimage(company1);
-//company2_url = returnimage(company2);
-//company3_url = returnimage(company3);
+company1_url = returnimage(company1);
+company2_url = returnimage(company2);
+company3_url = returnimage(company3);
 console.log("url")
 //console.log(company1_url)
              var imageUrl = "https://placekitten.com/" + Number(200) + "/" + Number(300);
