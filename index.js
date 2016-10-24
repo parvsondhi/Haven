@@ -246,7 +246,7 @@ function kittenMessage2(recipientId, company1, company2, company3, jobtitle1, jo
 //company2_url = returnimage(company2);
 //company3_url = returnimage(company3);
 console.log("url")
-console.log(company1_url)
+//console.log(company1_url)
              var imageUrl = "https://placekitten.com/" + Number(200) + "/" + Number(300);
 
             message = {
