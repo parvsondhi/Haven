@@ -248,7 +248,7 @@ company3_url = returnimage(company3);
 console.log("url")
 //console.log(company1_url)
              var imageUrl = "https://placekitten.com/" + Number(200) + "/" + Number(300);
-
+var imageurlnew = "https://s3-us-west-1.amazonaws.com/havenchatbot/green_postback_greyKoala-01.png";
             message = {
                 "attachment": {
                     "type": "template",
@@ -257,7 +257,7 @@ console.log("url")
                         "elements": [{
                             "title": company1,
                             "subtitle": jobtitle1,
-                            "image_url": "icon.jpeg" ,
+                            "image_url": imageurlnew ,
                             "buttons": [{
                                 "type": "web_url",
                                 "url": url1,
@@ -271,7 +271,7 @@ console.log("url")
                           {
                             "title": company2,
                             "subtitle": jobtitle2,
-                            "image_url": company2_url ,
+                            "image_url": imageurlnew ,
                             "buttons": [{
                                 "type": "web_url",
                                 "url": url2,
@@ -285,7 +285,7 @@ console.log("url")
                   {
                     "title": company3,
                     "subtitle": jobtitle3,
-                    "image_url": company3_url ,
+                    "image_url": imageurlnew ,
                     "buttons": [{
                         "type": "web_url",
                         "url": url3,
