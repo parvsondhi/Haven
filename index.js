@@ -161,11 +161,11 @@ function sendButtonMessage(recipientId,message) {
           "buttons":[{
             "type": "postback",
             "title": "Sure",
-            "payload": "Coolio! Let's start by picking your city."
+            "payload": "Coolio! Let's start by picking your city.s_tsurebutton"
           }, {
             "type": "postback",
             "title": "Not Today",
-            "payload": "That's alright. Gotta clean up Siri's mess anyway. I'll be around!"
+            "payload": "That's alright. Gotta clean up Siri's mess anyway. I'll be around!s_tnotodaybutton"
           }]
         }
       }
