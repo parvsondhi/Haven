@@ -95,6 +95,7 @@ app.post('/webhook', function (req, res) {
           var newstring = event.postback.payload.split("s_t")
           var regex = /(<([^>]+)>)|(\s&amp)/ig;
           result = newstring[0].replace(regex, "");
+          console.log(newstring[1]);
           // if(event.postback.title == "Show Job Summary")
             console.log(event.postback)
 
