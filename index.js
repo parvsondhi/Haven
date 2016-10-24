@@ -92,9 +92,9 @@ app.post('/webhook', function (req, res) {
 
         else if(event.postback) {
           //var requestai = appai.textRequest(event.postback.payload);
-
+          var newstring = event.postback.payload.split("s_t")
           var regex = /(<([^>]+)>)|(\s&amp)/ig;
-          result = event.postback.payload.replace(regex, "");
+          result = newstring[0].replace(regex, "");
           // if(event.postback.title == "Show Job Summary")
             console.log(event.postback)
 
@@ -220,7 +220,7 @@ var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/purple_postback
                                 }, {
                                 "type": "postback",
                                 "title": "Show Job Summary",
-                                "payload":snippet1,
+                                "payload":snippet1 + " s_t " + "jobsummary",
                             }],
                           },
                           {
