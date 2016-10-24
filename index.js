@@ -217,7 +217,7 @@ function sendButtonMessage2(recipientId,message,urlvalue,role,location) {
   sendMessage(recipientId,messageData);
 }
 
-function sendButtonMessage1(recipientId,message) {
+function sendButtonMessage(recipientId,message) {
    messageData = {
       "attachment": {
         "type": "template",
