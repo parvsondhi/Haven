@@ -86,7 +86,8 @@ app.post('/webhook', function (req, res) {
 
         else if(event.postback) {
           //var requestai = appai.textRequest(event.postback.payload);
-          var match = /[^(<w>|W)]/.exec(event.postback.payload)
+          var a = /^(<w>|W)/;
+          var match = a.exec(event.postback.payload)
           console.log(match)
           sendMessage(event.sender.id,{text: event.postback.payload})
         }
