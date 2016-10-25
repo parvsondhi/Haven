@@ -74,7 +74,7 @@ app.post('/webhook', function (req, res) {
         var event = events[i];
         console.log("individual event " + event)
         if (event.message && event.message.text) {
-          if(!(event.message.text.toLowerCase().localeCompare("find more jobs")){
+          if(!(event.message.text.toLowerCase().localeCompare("find more jobs"))){
             console.log(event.message.quick_reply.payload)
           }
           //if (!kittenMessage(event.sender.id, event.message.text))
