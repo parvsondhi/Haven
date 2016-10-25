@@ -74,8 +74,12 @@ app.post('/webhook', function (req, res) {
         var event = events[i];
         console.log("individual event " + event)
         if (event.message && event.message.text) {
+          if(!(event.message.text.toLowerCase().localeCompare("find more jobs")){
+            console.log(event.message.quick_reply.payload)
+          }
           //if (!kittenMessage(event.sender.id, event.message.text))
           //{
+
             console.log("hello " + event.message.text)
             var requestai = appai.textRequest(event.message.text);
 
@@ -303,11 +307,7 @@ var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_g
                                 "type": "postback",
                                 "title": "View Job Overview",
                                 "payload":snippet1 + "s_t" + "jobsummary" + "s_t" + url1 + "s_t" + jobrole + "s_t" + location,
-                            }, {
-                            "type": "postback",
-                            "title": "Show More Jobs",
-                            "payload":"emptys_tfindmores_t" + jobrole + "s_t" + location,
-                        }],
+                            }],
 
                           },
                           {
@@ -322,11 +322,7 @@ var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_g
                                 "type": "postback",
                                 "title": "View Job Overview",
                                 "payload": snippet2 + "s_t" + "jobsummary" + "s_t" + url2 + "s_t" + jobrole + "s_t" + location,
-                    }, {
-                    "type": "postback",
-                    "title": "Show More Jobs",
-                    "payload":"emptys_tfindmores_t" + jobrole + "s_t" + location,
-                }],
+                    }],
                   },
                   {
                     "title": company3,
@@ -340,11 +336,7 @@ var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_g
                         "type": "postback",
                         "title": "View Job Overview",
                         "payload": snippet3 + "s_t" + "jobsummary" + "s_t" + url3 + "s_t" + jobrole + "s_t" + location,
-            }, {
-            "type": "postback",
-            "title": "Show More Jobs",
-            "payload":"emptys_tfindmores_t" + jobrole + "s_t" + location,
-        }],
+            }],
           }
 
 
@@ -355,7 +347,7 @@ var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_g
 {
 "content_type":"text",
 "title":"Find More Jobs",
-"payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
+"payload":"emptys_tfindmores_t" + jobrole + "s_t" + location
 }]
 
 
