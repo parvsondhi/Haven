@@ -277,10 +277,10 @@ function sendButtonMessage2(recipientId,message,urlvalue,role,location) {
           "buttons":[{
             "type": "web_url",
             "url": urlvalue,
-            "title": "Apply Now"
+            "title": "Apply To Job"
           }, {
             "type": "postback",
-            "title": "Show More Jobs",
+            "title": "Find More Jobs",
             "payload": "emptys_tfindmores_t" + role + "s_t" + location
           }]
         }
@@ -331,14 +331,14 @@ var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_g
                             "subtitle": jobtitle1,
                             "image_url": imageurl1 ,
                             "buttons": [{
-                                "type": "web_url",
-                                "url": url1,
-                                "title": "Apply Now"
-                                }, {
                                 "type": "postback",
                                 "title": "View Job Overview",
                                 "payload":snippet1 + "s_t" + "jobsummary" + "s_t" + url1 + "s_t" + jobrole + "s_t" + location,
-                            }],
+                            },{
+                                "type": "web_url",
+                                "url": url1,
+                                "title": "Apply To Job"
+                                }],
 
                           },
                           {
@@ -346,28 +346,28 @@ var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_g
                             "subtitle": jobtitle2,
                             "image_url": imageurl2 ,
                             "buttons": [{
-                                "type": "web_url",
-                                "url": url2,
-                                "title": "Apply Now"
-                                }, {
                                 "type": "postback",
                                 "title": "View Job Overview",
                                 "payload": snippet2 + "s_t" + "jobsummary" + "s_t" + url2 + "s_t" + jobrole + "s_t" + location,
-                    }],
+                    },{
+                        "type": "web_url",
+                        "url": url2,
+                        "title": "Apply To Job"
+                        }],
                   },
                   {
                     "title": company3,
                     "subtitle": jobtitle3,
                     "image_url": imageurl3 ,
                     "buttons": [{
-                        "type": "web_url",
-                        "url": url3,
-                        "title": "Apply Now"
-                        }, {
                         "type": "postback",
                         "title": "View Job Overview",
                         "payload": snippet3 + "s_t" + "jobsummary" + "s_t" + url3 + "s_t" + jobrole + "s_t" + location,
-            }],
+            },{
+                "type": "web_url",
+                "url": url3,
+                "title": "Apply To Job"
+                }],
           }
 
 
