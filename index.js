@@ -308,12 +308,7 @@ var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_g
                             "title": "Show More Jobs",
                             "payload":"emptys_tfindmores_t" + jobrole + "s_t" + location,
                         }],
-                        "quick_replies":[
-      {
-        "content_type":"text",
-        "title":"Find More Jobs",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
-      }],
+
                           },
                           {
                             "title": company2,
@@ -355,7 +350,13 @@ var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_g
 
                   ]
                     }
-                }
+                },
+                "quick_replies":[
+{
+"content_type":"text",
+"title":"Find More Jobs",
+"payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
+}]
 
 
             };
