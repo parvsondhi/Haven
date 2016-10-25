@@ -175,7 +175,7 @@ else {
               replytext = response.result.fulfillment.speech
               sendMessage(event.sender.id,{text: replytext})
 
-            }
+            });
             requestai.on('error', function(error) {
              console.log(error);
             });
