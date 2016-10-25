@@ -301,13 +301,19 @@ var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_g
                                 "title": "Apply Now"
                                 }, {
                                 "type": "postback",
-                                "title": "View Job Summary",
+                                "title": "View Job Overview",
                                 "payload":snippet1 + "s_t" + "jobsummary" + "s_t" + url1 + "s_t" + jobrole + "s_t" + location,
                             }, {
                             "type": "postback",
                             "title": "Show More Jobs",
                             "payload":"emptys_tfindmores_t" + jobrole + "s_t" + location,
                         }],
+                        "quick_replies":[
+      {
+        "content_type":"text",
+        "title":"Find More Jobs",
+        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
+      }],
                           },
                           {
                             "title": company2,
@@ -319,7 +325,7 @@ var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_g
                                 "title": "Apply Now"
                                 }, {
                                 "type": "postback",
-                                "title": "View Job Summary",
+                                "title": "View Job Overview",
                                 "payload": snippet2 + "s_t" + "jobsummary" + "s_t" + url2 + "s_t" + jobrole + "s_t" + location,
                     }, {
                     "type": "postback",
@@ -337,7 +343,7 @@ var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_g
                         "title": "Apply Now"
                         }, {
                         "type": "postback",
-                        "title": "View Job Summary",
+                        "title": "View Job Overview",
                         "payload": snippet3 + "s_t" + "jobsummary" + "s_t" + url3 + "s_t" + jobrole + "s_t" + location,
             }, {
             "type": "postback",
