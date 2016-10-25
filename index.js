@@ -52,7 +52,7 @@ app.listen((process.env.PORT || 3000));
 
 // Server frontpage
 app.get('/', function (req, res) {
-    res.send('This is TestBot Server');
+    res.send('This is Haven');
 });
 
 // Facebook Webhook
@@ -107,7 +107,7 @@ app.post('/webhook', function (req, res) {
               });
 
           }
-          //if (!kittenMessage(event.sender.id, event.message.text))
+
 
 else {
             console.log("hello " + event.message.text)
@@ -217,7 +217,7 @@ else {
 
         }
         else {
-          console.log("normal")
+
           sendMessage(event.sender.id, {text: newstring[0]})
         }
         }
@@ -249,22 +249,7 @@ function sendMessage(recipientId, message) {
     });
 };
 
-// function sendMessage2(message) {
-//   console.log("the message " + message)
-//     request({
-//         url: 'https://graph.facebook.com/v2.6/me/messages',
-//         qs: {access_token: process.env.PAGE_ACCESS_TOKEN},
-//         method: 'POST',
-//         json: message
-//
-//     }, function(error, response, body) {
-//         if (error) {
-//             console.log('Error sending message: ', error);
-//         } else if (response.body.error) {
-//             console.log('Error: ', response.body.error);
-//         }
-//     });
-// };
+
 
 
 function sendButtonMessage2(recipientId,message,urlvalue,role,location) {
@@ -317,7 +302,7 @@ function sendButtonMessage(recipientId,message) {
 function richMessage(recipientId, company1, company2, company3, jobtitle1, jobtitle2, jobtitle3, url1, url2, url3, snippet1, snippet2, snippet3, jobrole, location) {
 
 
-console.log("url")
+
 var imageurl2 = "https://s3-us-west-1.amazonaws.com/havenchatbot/green_postback_greyKoala-01.png";
 var imageurl1 = "https://s3-us-west-1.amazonaws.com/havenchatbot/purple_postback_pinkKoala-01.png";
 var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_greyKoala-01.png";
