@@ -108,7 +108,7 @@ app.post('/webhook', function (req, res) {
                     i = random_numbers[0]
                     j = random_numbers[1]
                     k = random_numbers[2]
-                    kittenMessage2(event.sender.id, data.results[i].company, data.results[j].company, data.results[k].company, data.results[i].jobtitle, data.results[j].jobtitle, data.results[k].jobtitle, data.results[i].url, data.results[j].url, data.results[k].url, data.results[i].snippet, data.results[j].snippet, data.results[k].snippet,rolesend, locsend)
+                    richMessage(event.sender.id, data.results[i].company, data.results[j].company, data.results[k].company, data.results[i].jobtitle, data.results[j].jobtitle, data.results[k].jobtitle, data.results[i].url, data.results[j].url, data.results[k].url, data.results[i].snippet, data.results[j].snippet, data.results[k].snippet,rolesend, locsend)
                     //sendMessage(event.sender.id, {text: "Echo: " + event.message.text + data.results[1].company});;
                 });
 
@@ -153,7 +153,7 @@ app.post('/webhook', function (req, res) {
           console.log(newstring[4])
 
           //sendMessage(event.sender.id,{text: result})
-          sendButtonMessage2(event.sender.id,result,newstring[2],newstring[3],newstring[4])
+          richMessage(event.sender.id,result,newstring[2],newstring[3],newstring[4])
 
         }
         else if (!(newstring[1].localeCompare("findmore"))) {
@@ -181,7 +181,7 @@ app.post('/webhook', function (req, res) {
               i = random_numbers[0]
               j = random_numbers[1]
               k = random_numbers[2]
-              kittenMessage2(replytext, data.results[i].company, data.results[j].company, data.results[k].company, data.results[i].jobtitle, data.results[j].jobtitle, data.results[k].jobtitle, data.results[i].url, data.results[j].url, data.results[k].url, data.results[i].snippet, data.results[j].snippet, data.results[k].snippet,rolesend, locsend)
+              richMessage(replytext, data.results[i].company, data.results[j].company, data.results[k].company, data.results[i].jobtitle, data.results[j].jobtitle, data.results[k].jobtitle, data.results[i].url, data.results[j].url, data.results[k].url, data.results[i].snippet, data.results[j].snippet, data.results[k].snippet,rolesend, locsend)
 
           });
 
@@ -283,34 +283,9 @@ function sendButtonMessage(recipientId,message) {
   sendMessage(recipientId,messageData);
 }
 
-// function returnimage(companyname){
-//   var imageurl = '';
-//   request({
-//   url: 'https://api.cognitive.microsoft.com/bing/v5.0/images/search?mkt=en-us',
-//   method: 'GET',
-//   dataType: "json",
-//   headers: {'Ocp-Apim-Subscription-Key': '8f762e2427bb44eb8f4473d707575889'},
-//   qs: {q: companyname}
-// },function(error, response, body) {
-//   var data = JSON.parse(body);
-//   //console.log("data hopefully displayed:");
-//   //console.log(data.value[0].thumbnailUrl)
-//   imageurl = data.value[0].thumbnailUrl;
-// });
-//
-//     return imageurl;
-//
-// }
 
-// send rich message with kitten
-function kittenMessage2(recipientId, company1, company2, company3, jobtitle1, jobtitle2, jobtitle3, url1, url2, url3, snippet1, snippet2, snippet3, jobrole, location) {
+function richMessage(recipientId, company1, company2, company3, jobtitle1, jobtitle2, jobtitle3, url1, url2, url3, snippet1, snippet2, snippet3, jobrole, location) {
 
-    // text = text || "";
-    // var values = text.split(' ');
-    //
-    // if (values.length === 3 && values[0] === 'kitten') {
-    //     if (Number(values[1]) > 0 && Number(values[2]) > 0) {
-    //
 
 console.log("url")
 var imageurl2 = "https://s3-us-west-1.amazonaws.com/havenchatbot/green_postback_greyKoala-01.png";
@@ -387,9 +362,5 @@ var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_g
             sendMessage(recipientId, message);
 
             return true;
-    //     }
-    // }
-    //
-    // return false;
 
 };
