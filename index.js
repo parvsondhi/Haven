@@ -169,6 +169,20 @@ else {
       }
 
         else if(event.postback) {
+          if(!(event.postback.payload.localeCompare("hey"))){
+            var requestai = appai.textRequest(event.postback.payload);
+            requestai.on('response', function(response) {
+              replytext = response.result.fulfillment.speech
+              sendMessage(event.sender.id,{text: replytext})
+
+            }
+            requestai.on('error', function(error) {
+             console.log(error);
+            });
+
+            requestai.end();
+          }
+          else{
           //var requestai = appai.textRequest(event.postback.payload);
           var newstring = event.postback.payload.split("s_t")
           if(!(newstring[1].localeCompare("jobsummary"))){
@@ -220,9 +234,11 @@ else {
 
           sendMessage(event.sender.id, {text: newstring[0]})
         }
+      }
         }
 
-    }
+
+  }
     res.sendStatus(200);
 });
 
