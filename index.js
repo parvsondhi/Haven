@@ -136,11 +136,6 @@ app.post('/webhook', function (req, res) {
         else if(event.postback) {
           //var requestai = appai.textRequest(event.postback.payload);
           var newstring = event.postback.payload.split("s_t")
-          console.log(newstring[0])
-          console.log(newstring[1])
-          console.log(newstring[2])
-          console.log(newstring[3])
-          console.log(newstring[4])
           if(!(newstring[1].localeCompare("jobsummary"))){
           var regex = /(<([^>]+)>)|(\s&amp)/ig;
           result = newstring[0].replace(regex, "");
@@ -153,7 +148,7 @@ app.post('/webhook', function (req, res) {
           console.log(newstring[4])
 
           //sendMessage(event.sender.id,{text: result})
-          richMessage(event.sender.id,result,newstring[2],newstring[3],newstring[4])
+          sendButtonMessage2(event.sender.id,result,newstring[2],newstring[3],newstring[4])
 
         }
         else if (!(newstring[1].localeCompare("findmore"))) {
