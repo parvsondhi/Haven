@@ -76,10 +76,40 @@ app.post('/webhook', function (req, res) {
         if (event.message && event.message.text) {
           if(!(event.message.text.toLowerCase().localeCompare("find more jobs"))){
             console.log(event.message.quick_reply.payload)
+            var newstring = event.message.quick_reply.payload.split("s_t")
+
+              var roletobesearched = newstring[2];
+              var locationtobesearched = newstring[3];
+              console.log(roletobesearched)
+              console.log(locationtobesearched)
+              replytext = event.sender.id
+              request({
+                  url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&format=json&limit=20&v=2',
+                  // url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&q=data%20science&l=san%20francisco&format=json&limit=3&v=2',
+                  method: 'GET',
+                  replytext: replytext,
+                  rolesend: roletobesearched,
+                  locsend: locationtobesearched,
+                  qs: {q: roletobesearched, l:locationtobesearched},
+              }, function(error, response, body) {
+                  var data = JSON.parse(body);
+                  console.log("data hopefully displayed:");
+                  //console.log(event.message.text)
+                  console.log(data.results[1].company);
+                  console.log("is this is the issue")
+                  //console.log(replytext);
+                  random_numbers = findrandom();
+                  i = random_numbers[0]
+                  j = random_numbers[1]
+                  k = random_numbers[2]
+                  richMessage(replytext, data.results[i].company, data.results[j].company, data.results[k].company, data.results[i].jobtitle, data.results[j].jobtitle, data.results[k].jobtitle, data.results[i].url, data.results[j].url, data.results[k].url, data.results[i].snippet, data.results[j].snippet, data.results[k].snippet,rolesend, locsend)
+
+              });
+
           }
           //if (!kittenMessage(event.sender.id, event.message.text))
-          //{
 
+else {
             console.log("hello " + event.message.text)
             var requestai = appai.textRequest(event.message.text);
 
@@ -134,8 +164,9 @@ app.post('/webhook', function (req, res) {
             });
 
             requestai.end();
-          //}
+
         }
+      }
 
         else if(event.postback) {
           //var requestai = appai.textRequest(event.postback.payload);
