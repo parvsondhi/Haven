@@ -102,13 +102,15 @@ app.post('/webhook', function (req, res) {
                   i = random_numbers[0]
                   j = random_numbers[1]
                   k = random_numbers[2]
-                  richMessage(replytext, data.results[i].company, data.results[j].company, data.results[k].company, data.results[i].jobtitle, data.results[j].jobtitle, data.results[k].jobtitle, data.results[i].url, data.results[j].url, data.results[k].url, data.results[i].snippet, data.results[j].snippet, data.results[k].snippet,rolesend, locsend)
+                  richMessagewithHelp(replytext, data.results[i].company, data.results[j].company, data.results[k].company, data.results[i].jobtitle, data.results[j].jobtitle, data.results[k].jobtitle, data.results[i].url, data.results[j].url, data.results[k].url, data.results[i].snippet, data.results[j].snippet, data.results[k].snippet,rolesend, locsend)
 
               });
 
           }
 
-
+else if (!(event.message.text.localeCompare("Take A Break"))) {
+  sendMessage(event.sender.id,{text: "Have a KitKat"})
+}
 else {
             console.log("hello " + event.message.text)
             var requestai = appai.textRequest(event.message.text);
@@ -380,6 +382,88 @@ var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_g
 "content_type":"text",
 "title":"Find More Jobs",
 "payload":"emptys_tfindmores_t" + jobrole + "s_t" + location
+}]
+
+
+            };
+
+            sendMessage(recipientId, message);
+
+            return true;
+
+};
+
+
+function richMessagewithHelp(recipientId, company1, company2, company3, jobtitle1, jobtitle2, jobtitle3, url1, url2, url3, snippet1, snippet2, snippet3, jobrole, location) {
+
+
+
+var imageurl2 = "https://s3-us-west-1.amazonaws.com/havenchatbot/green_postback_greyKoala-01.png";
+var imageurl1 = "https://s3-us-west-1.amazonaws.com/havenchatbot/purple_postback_pinkKoala-01.png";
+var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_greyKoala-01.png";
+            message = {
+                "attachment": {
+                    "type": "template",
+                    "payload": {
+                        "template_type": "generic",
+                        "elements": [{
+                            "title": company1,
+                            "subtitle": jobtitle1,
+                            "image_url": imageurl1 ,
+                            "buttons": [{
+                                "type": "postback",
+                                "title": "View Job Overview",
+                                "payload":snippet1 + "s_t" + "jobsummary" + "s_t" + url1 + "s_t" + jobrole + "s_t" + location,
+                            },{
+                                "type": "web_url",
+                                "url": url1,
+                                "title": "Apply To Job"
+                                }],
+
+                          },
+                          {
+                            "title": company2,
+                            "subtitle": jobtitle2,
+                            "image_url": imageurl2 ,
+                            "buttons": [{
+                                "type": "postback",
+                                "title": "View Job Overview",
+                                "payload": snippet2 + "s_t" + "jobsummary" + "s_t" + url2 + "s_t" + jobrole + "s_t" + location,
+                    },{
+                        "type": "web_url",
+                        "url": url2,
+                        "title": "Apply To Job"
+                        }],
+                  },
+                  {
+                    "title": company3,
+                    "subtitle": jobtitle3,
+                    "image_url": imageurl3 ,
+                    "buttons": [{
+                        "type": "postback",
+                        "title": "View Job Overview",
+                        "payload": snippet3 + "s_t" + "jobsummary" + "s_t" + url3 + "s_t" + jobrole + "s_t" + location,
+            },{
+                "type": "web_url",
+                "url": url3,
+                "title": "Apply To Job"
+                }],
+          }
+
+
+                  ]
+                    }
+                },
+                "quick_replies":[
+{
+"content_type":"text",
+"title":"Find More Jobs",
+"payload":"emptys_tfindmores_t" + jobrole + "s_t" + location
+},
+{
+"content_type":"text",
+"title":"Take a Break",
+"payload":"emptys_tbreaks_t" + jobrole + "s_t" + location
 }]
 
 
