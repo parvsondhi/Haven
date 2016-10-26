@@ -108,7 +108,7 @@ app.post('/webhook', function (req, res) {
 
           }
 
-else if (!(event.message.text.localeCompare("Take A Break"))) {
+else if (!(event.message.text.localeCompare("Take a Break"))) {
   sendMessage(event.sender.id,{text: "Have a KitKat"})
 }
 else {
