@@ -275,7 +275,7 @@ else {
         }
         else if (!(newstring[1].localeCompare("findmore"))) {
           var roletobesearched = newstring[2];
-          var locationtobesearched = newstring[3];
+          var seloc = newstring[3];
           console.log(typeof roletobesearched)
           console.log(typeof locationtobesearched)
           replytext = event.sender.id
@@ -284,9 +284,9 @@ else {
               // url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&q=data%20science&l=san%20francisco&format=json&limit=3&v=2',
               method: 'GET',
               replytext: replytext,
-              locsend: "houston",
+              locsend: seloc,
               rolesend: roletobesearched,
-              qs: {q: roletobesearched, l: "houston"},
+              qs: {q: roletobesearched, l: seloc},
           }, function(error, response, body) {
               var data = JSON.parse(body);
               console.log("data hopefully displayed:");
