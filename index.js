@@ -412,7 +412,7 @@ console.log(locationisend)
                             "buttons": [{
                                 "type": "postback",
                                 "title": "View Job Overview",
-                                "payload":snippet1 + "s_t" + "jobsummary" + "s_t" + url1 + "s_t" + jobrole + "s_tirvine"
+                                "payload":snippet1 + "s_t" + "jobsummary" + "s_t" + url1 + "s_t" + jobrole + "s_t" + location
                             },{
                                 "type": "web_url",
                                 "url": url1,
@@ -427,7 +427,7 @@ console.log(locationisend)
                             "buttons": [{
                                 "type": "postback",
                                 "title": "View Job Overview",
-                                "payload": snippet2 + "s_t" + "jobsummary" + "s_t" + url2 + "s_t" + jobrole + "s_tirvine"
+                                "payload": snippet2 + "s_t" + "jobsummary" + "s_t" + url2 + "s_t" + jobrole + "s_t" + location
                     },{
                         "type": "web_url",
                         "url": url2,
@@ -441,7 +441,7 @@ console.log(locationisend)
                     "buttons": [{
                         "type": "postback",
                         "title": "View Job Overview",
-                        "payload": snippet3 + "s_t" + "jobsummary" + "s_t" + url3 + "s_t" + jobrole + "s_tirvine"
+                        "payload": snippet3 + "s_t" + "jobsummary" + "s_t" + url3 + "s_t" + jobrole + "s_t" + location
             },{
                 "type": "web_url",
                 "url": url3,
@@ -490,7 +490,7 @@ var locationisend = location;
                             "buttons": [{
                                 "type": "postback",
                                 "title": "View Job Overview",
-                                "payload":snippet1 + "s_t" + "jobsummary" + "s_t" + url1 + "s_t" + jobrole + "s_tirvine"
+                                "payload":snippet1 + "s_t" + "jobsummary" + "s_t" + url1 + "s_t" + jobrole + "s_t" + location
                             },{
                                 "type": "web_url",
                                 "url": url1,
@@ -505,7 +505,7 @@ var locationisend = location;
                             "buttons": [{
                                 "type": "postback",
                                 "title": "View Job Overview",
-                                "payload": snippet2 + "s_t" + "jobsummary" + "s_t" + url2 + "s_t" + jobrole + "s_tirvine"
+                                "payload": snippet2 + "s_t" + "jobsummary" + "s_t" + url2 + "s_t" + jobrole + "s_t" + location
                     },{
                         "type": "web_url",
                         "url": url2,
@@ -519,7 +519,7 @@ var locationisend = location;
                     "buttons": [{
                         "type": "postback",
                         "title": "View Job Overview",
-                        "payload": snippet3 + "s_t" + "jobsummary" + "s_t" + url3 + "s_t" + jobrole + "s_tirvine"
+                        "payload": snippet3 + "s_t" + "jobsummary" + "s_t" + url3 + "s_t" + jobrole + "s_t" + location
             },{
                 "type": "web_url",
                 "url": url3,
