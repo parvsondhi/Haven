@@ -347,25 +347,27 @@ function sendMessage(recipientId, message) {
 function sendButtonMessage2(recipientId,message,urlvalue,role,location) {
   console.log("CAN I SEE MY LOCATION HERE")
   console.log(location)
-   messageData = {
-      "attachment": {
-        "type": "template",
-        "payload": {
-          "template_type": "button",
-          "text": message,
-          "buttons":[{
-            "type": "web_url",
-            "url": urlvalue,
-            "title": "Apply To Job"
-           }
-          //{
-          //   "type": "postback",
-          //   "title": "View more Jobs",
-          //   "payload": "emptys_tfindmores_t" + role + "s_t" + location + "s_tend"
-          // }
-        ]
-        }
-      },
+  //  messageData = {
+  //     "attachment": {
+  //       "type": "template",
+  //       "payload": {
+  //         "template_type": "button",
+  //         "text": message,
+  //         "buttons":[{
+  //           "type": "web_url",
+  //           "url": urlvalue,
+  //           "title": "Apply To Job"
+  //          }
+  //         //{
+  //         //   "type": "postback",
+  //         //   "title": "View more Jobs",
+  //         //   "payload": "emptys_tfindmores_t" + role + "s_t" + location + "s_tend"
+  //         // }
+  //       ]
+  //       }
+  //     },
+  messageData = {
+    "text" : message,
       "quick_replies":[
 {
 "content_type":"text",
