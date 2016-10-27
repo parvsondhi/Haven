@@ -147,6 +147,7 @@ else {
               console.log(response.result.parameters.role)
               replytext = response.result.fulfillment.speech
               rolesend = response.result.parameters.role
+              var newval;
               locsend = loc_city
               locsend = response.result.parameters.geocity
               //loc_city = locsend
@@ -294,7 +295,7 @@ else {
               console.log(rolesend);
               console.log(newval);
               console.log("is this is the issue")
-              console.log(body)
+              //console.log(body)
               //console.log(replytext);
               random_numbers = findrandom();
               i = random_numbers[0]
