@@ -110,7 +110,7 @@ app.post('/webhook', function (req, res) {
 
           }
 
-else if (!(event.message.text.localeCompare("Take a Break"))) {
+else if (!(event.message.text.toLowerCase().localeCompare("take a break"))) {
   var x = Math.floor((Math.random() * 4));
   console.log(random_quotes[x]);
   messageData = {
