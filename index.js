@@ -341,6 +341,8 @@ function sendMessage(recipientId, message) {
 
 
 function sendButtonMessage2(recipientId,message,urlvalue,role,location) {
+  console.log("CAN I SEE MY LOCATION HERE")
+  console.log(location)
    messageData = {
       "attachment": {
         "type": "template",
