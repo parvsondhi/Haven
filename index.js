@@ -5,6 +5,7 @@ var app = express();
 var apiai = require('apiai');
 var appai = apiai("c0f2b205eeaa485c8ec3b2172f750b2f");
 var loc_city = "";
+loc_city = "austin"
 var random_quotes = ["https://s3-us-west-1.amazonaws.com/havenchatbot/quote5-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote6-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote1-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote4-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote8-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote7-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote2-01.png"]
 
 
@@ -147,6 +148,7 @@ else {
               replytext = response.result.fulfillment.speech
               rolesend = response.result.parameters.role
               locsend = response.result.parameters.geocity
+              //loc_city = locsend
               if(response.result.parameters.geocity && response.result.parameters.role) {
                 request({
                     url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&format=json&limit=20&v=2',
@@ -155,6 +157,33 @@ else {
                     replytext: replytext,
                     rolesend: rolesend,
                     locsend: locsend,
+                    qs: {q: response.result.parameters.role, l:response.result.parameters.geocity},
+                }, function(error, response, body) {
+                    var data = JSON.parse(body);
+                    console.log("data hopefully displayed:");
+                    console.log(event.message.text)
+                    console.log(data.results[1].company);
+                    console.log("is this is the issue")
+                    console.log(replytext);
+                    sendMessage(event.sender.id,{text: replytext})
+                    random_numbers = findrandom();
+                    i = random_numbers[0]
+                    j = random_numbers[1]
+                    k = random_numbers[2]
+                    richMessage(event.sender.id, data.results[i].company, data.results[j].company, data.results[k].company, data.results[i].jobtitle, data.results[j].jobtitle, data.results[k].jobtitle, data.results[i].url, data.results[j].url, data.results[k].url, data.results[i].snippet, data.results[j].snippet, data.results[k].snippet,rolesend, locsend)
+                    //sendMessage(event.sender.id, {text: "Echo: " + event.message.text + data.results[1].company});;
+                });
+
+              }
+
+              else if(response.result.parameters.role) {
+                request({
+                    url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&format=json&limit=20&v=2',
+                    // url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&q=data%20science&l=san%20francisco&format=json&limit=3&v=2',
+                    method: 'GET',
+                    replytext: replytext,
+                    rolesend: rolesend,
+                    locsend: loc_city,
                     qs: {q: response.result.parameters.role, l:response.result.parameters.geocity},
                 }, function(error, response, body) {
                     var data = JSON.parse(body);
