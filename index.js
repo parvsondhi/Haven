@@ -290,6 +290,7 @@ else {
               var data = JSON.parse(body);
               console.log("data hopefully displayed:");
               //console.log(event.message.text)
+              console.log(rolesend);
               console.log(locsend);
               console.log("is this is the issue")
               //console.log(replytext);
