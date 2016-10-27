@@ -113,7 +113,16 @@ app.post('/webhook', function (req, res) {
 else if (!(event.message.text.localeCompare("Take a Break"))) {
   var x = Math.floor((Math.random() * 4));
   console.log(random_quotes[x]);
-  sendMessage(event.sender.id,{text: "Have a KitKat"})
+  messageData = {
+     "attachment": {
+       "type": "image",
+       "payload": {
+        "url":random_quotes[x]
+      }
+     }
+   };
+   sendMessage(event.sender.id,messageData)
+  //sendMessage(event.sender.id,{text: "Have a KitKat"})
 }
 else {
             console.log("hello " + event.message.text)
