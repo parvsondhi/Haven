@@ -119,7 +119,13 @@ else if (!(event.message.text.localeCompare("Take a Break"))) {
        "payload": {
         "url":random_quotes[x]
       }
-     }
+     },
+     "quick_replies":[
+{
+  "content_type":"text",
+  "title":"Take a Break",
+  "payload":"emptys_tbreaks_t" + jobrole + "s_t" + location
+}]
    };
    sendMessage(event.sender.id,messageData)
   //sendMessage(event.sender.id,{text: "Have a KitKat"})
