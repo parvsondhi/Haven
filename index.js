@@ -196,7 +196,7 @@ else {
                     replytext: replytext,
                     rolesend: rolesend,
                     locsend: loc_city,
-                    qs: {q: response.result.parameters.role, l:response.result.parameters.geocity},
+                    qs: {q: response.result.parameters.role, l: loc_city},
                 }, function(error, response, body) {
                     var data = JSON.parse(body);
                     console.log("data hopefully displayed:");
