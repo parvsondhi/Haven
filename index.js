@@ -124,7 +124,7 @@ else if (!(event.message.text.localeCompare("Take a Break"))) {
 {
   "content_type":"text",
   "title":"Take a Break",
-  "payload":"emptys_tbreaks_t" + jobrole + "s_t" + location
+  "payload":"nothing"
 }]
    };
    sendMessage(event.sender.id,messageData)
