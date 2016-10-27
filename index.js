@@ -276,8 +276,8 @@ else {
         else if (!(newstring[1].localeCompare("findmore"))) {
           var roletobesearched = newstring[2];
           var seloc = newstring[3];
-          console.log(typeof roletobesearched)
-          console.log(typeof locationtobesearched)
+          console.log(roletobesearched)
+          console.log(locationtobesearched)
           replytext = event.sender.id
           request({
               url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&format=json&limit=20&v=2',
@@ -292,7 +292,7 @@ else {
               console.log("data hopefully displayed:");
               //console.log(event.message.text)
               console.log(rolesend);
-              console.log(locsend);
+              console.log(qs['l']);
               console.log("is this is the issue")
               //console.log(replytext);
               random_numbers = findrandom();
