@@ -284,21 +284,21 @@ else {
               method: 'GET',
               replytext: replytext,
               rolesend: roletobesearched,
-              locsender: locationtobesearched,
+              locsend: locationtobesearched,
               qs: {q: roletobesearched, l:locationtobesearched},
           }, function(error, response, body) {
               var data = JSON.parse(body);
               console.log("data hopefully displayed:");
               //console.log(event.message.text)
               console.log(rolesend);
-              console.log(locsender);
+              console.log(locsend);
               console.log("is this is the issue")
               //console.log(replytext);
               random_numbers = findrandom();
               i = random_numbers[0]
               j = random_numbers[1]
               k = random_numbers[2]
-              richMessage(replytext, data.results[i].company, data.results[j].company, data.results[k].company, data.results[i].jobtitle, data.results[j].jobtitle, data.results[k].jobtitle, data.results[i].url, data.results[j].url, data.results[k].url, data.results[i].snippet, data.results[j].snippet, data.results[k].snippet,rolesend, locsender)
+              richMessage(replytext, data.results[i].company, data.results[j].company, data.results[k].company, data.results[i].jobtitle, data.results[j].jobtitle, data.results[k].jobtitle, data.results[i].url, data.results[j].url, data.results[k].url, data.results[i].snippet, data.results[j].snippet, data.results[k].snippet,rolesend, locsend)
 
           });
 
