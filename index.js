@@ -283,7 +283,7 @@ function sendButtonMessage2(recipientId,message,urlvalue,role,location) {
             "title": "Apply To Job"
           }, {
             "type": "postback",
-            "title": "Find More Jobs",
+            "title": "View more Jobs",
             "payload": "emptys_tfindmores_t" + role + "s_t" + location
           }]
         }
