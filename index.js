@@ -147,6 +147,7 @@ else {
               console.log(response.result.parameters.role)
               replytext = response.result.fulfillment.speech
               rolesend = response.result.parameters.role
+              locsend = loc_city
               locsend = response.result.parameters.geocity
               //loc_city = locsend
 
