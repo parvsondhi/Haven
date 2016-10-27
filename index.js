@@ -357,7 +357,7 @@ function sendButtonMessage2(recipientId,message,urlvalue,role,location) {
             "type": "web_url",
             "url": urlvalue,
             "title": "Apply To Job"
-           } 
+           }
           //{
           //   "type": "postback",
           //   "title": "View more Jobs",
@@ -365,7 +365,13 @@ function sendButtonMessage2(recipientId,message,urlvalue,role,location) {
           // }
         ]
         }
-      }
+      },
+      "quick_replies":[
+{
+"content_type":"text",
+"title":"Find More Jobs",
+"payload":"emptys_tfindmores_t" + jobrole + "s_t" + location + "s_tend"
+}]
     };
 
   sendMessage(recipientId,messageData);
