@@ -254,6 +254,8 @@ else {
           }
           else{
           //var requestai = appai.textRequest(event.postback.payload);
+          console.log("ASHDASJKDHASJHDASJHDAJSHDASJKHDASJKHDJASKHD")
+          console.log(event.postback.payload)
           var newstring = event.postback.payload.split("s_t")
           if(!(newstring[1].localeCompare("jobsummary"))){
           var regex = /(<([^>]+)>)|(\s&amp)/ig;
