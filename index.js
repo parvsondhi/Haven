@@ -290,7 +290,7 @@ else {
               var data = JSON.parse(body);
               console.log("data hopefully displayed:");
               //console.log(event.message.text)
-              console.log(data.results[1].company);
+              console.log(locsend);
               console.log("is this is the issue")
               //console.log(replytext);
               random_numbers = findrandom();
