@@ -4,6 +4,8 @@ var request = require('request');
 var app = express();
 var apiai = require('apiai');
 var appai = apiai("c0f2b205eeaa485c8ec3b2172f750b2f");
+var loc_city = "";
+var random_quotes = ["https://s3-us-west-1.amazonaws.com/havenchatbot/quote5-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote6-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote1-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote4-01.png"]
 
 
 
@@ -109,6 +111,8 @@ app.post('/webhook', function (req, res) {
           }
 
 else if (!(event.message.text.localeCompare("Take a Break"))) {
+  var x = Math.floor((Math.random() * 4));
+  console.log(random_quotes[x]);
   sendMessage(event.sender.id,{text: "Have a KitKat"})
 }
 else {
