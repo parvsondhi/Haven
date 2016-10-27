@@ -212,7 +212,7 @@ else {
                     i = random_numbers[0]
                     j = random_numbers[1]
                     k = random_numbers[2]
-                    richMessage(event.sender.id, data.results[i].company, data.results[j].company, data.results[k].company, data.results[i].jobtitle, data.results[j].jobtitle, data.results[k].jobtitle, data.results[i].url, data.results[j].url, data.results[k].url, data.results[i].snippet, data.results[j].snippet, data.results[k].snippet,rolesend, locsend)
+                    richMessage(event.sender.id, data.results[i].company, data.results[j].company, data.results[k].company, data.results[i].jobtitle, data.results[j].jobtitle, data.results[k].jobtitle, data.results[i].url, data.results[j].url, data.results[k].url, data.results[i].snippet, data.results[j].snippet, data.results[k].snippet,rolesend, loc_city)
                     //sendMessage(event.sender.id, {text: "Echo: " + event.message.text + data.results[1].company});;
                 });
 
