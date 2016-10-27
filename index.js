@@ -156,7 +156,7 @@ else {
                 if(response.result.parameters.geostate){
                   loc_city = response.result.parameters.geostate;
                 }
-                sendButtonMessage(event.sender.id, replytext)
+                sendMessage(event.sender.id, replytext)
 
 
               }
