@@ -274,9 +274,9 @@ else {
         }
         else if (!(newstring[1].localeCompare("findmore"))) {
           var roletobesearched = newstring[2];
-          var locationtobesearched = newstring[3];
+          //var locationtobesearched = newstring[3];
           console.log(roletobesearched)
-          console.log(locationtobesearched)
+          //console.log(locationtobesearched)
           replytext = event.sender.id
           request({
               url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&format=json&limit=20&v=2',
@@ -284,21 +284,21 @@ else {
               method: 'GET',
               replytext: replytext,
               rolesend: roletobesearched,
-              locsend: locationtobesearched,
-              qs: {q: roletobesearched, l:locationtobesearched},
+              locsender: newstring[3],
+              qs: {q: roletobesearched, l:newstring[3]},
           }, function(error, response, body) {
               var data = JSON.parse(body);
               console.log("data hopefully displayed:");
               //console.log(event.message.text)
               console.log(rolesend);
-              console.log(locsend);
+              console.log(locsender);
               console.log("is this is the issue")
               //console.log(replytext);
               random_numbers = findrandom();
               i = random_numbers[0]
               j = random_numbers[1]
               k = random_numbers[2]
-              richMessage(replytext, data.results[i].company, data.results[j].company, data.results[k].company, data.results[i].jobtitle, data.results[j].jobtitle, data.results[k].jobtitle, data.results[i].url, data.results[j].url, data.results[k].url, data.results[i].snippet, data.results[j].snippet, data.results[k].snippet,rolesend, locsend)
+              richMessage(replytext, data.results[i].company, data.results[j].company, data.results[k].company, data.results[i].jobtitle, data.results[j].jobtitle, data.results[k].jobtitle, data.results[i].url, data.results[j].url, data.results[k].url, data.results[i].snippet, data.results[j].snippet, data.results[k].snippet,rolesend, locsender)
 
           });
 
