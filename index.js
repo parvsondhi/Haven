@@ -392,6 +392,7 @@ function richMessage(recipientId, company1, company2, company3, jobtitle1, jobti
 var imageurl2 = "https://s3-us-west-1.amazonaws.com/havenchatbot/green_postback_greyKoala-01.png";
 var imageurl1 = "https://s3-us-west-1.amazonaws.com/havenchatbot/purple_postback_pinkKoala-01.png";
 var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_greyKoala-01.png";
+var locationisend = location;
             message = {
                 "attachment": {
                     "type": "template",
@@ -404,7 +405,7 @@ var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_g
                             "buttons": [{
                                 "type": "postback",
                                 "title": "View Job Overview",
-                                "payload":snippet1 + "s_t" + "jobsummary" + "s_t" + url1 + "s_t" + jobrole + "s_t" + location,
+                                "payload":snippet1 + "s_t" + "jobsummary" + "s_t" + url1 + "s_t" + jobrole + "s_t" + locationisend,
                             },{
                                 "type": "web_url",
                                 "url": url1,
@@ -419,7 +420,7 @@ var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_g
                             "buttons": [{
                                 "type": "postback",
                                 "title": "View Job Overview",
-                                "payload": snippet2 + "s_t" + "jobsummary" + "s_t" + url2 + "s_t" + jobrole + "s_t" + location,
+                                "payload": snippet2 + "s_t" + "jobsummary" + "s_t" + url2 + "s_t" + jobrole + "s_t" + locationisend,
                     },{
                         "type": "web_url",
                         "url": url2,
@@ -433,7 +434,7 @@ var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_g
                     "buttons": [{
                         "type": "postback",
                         "title": "View Job Overview",
-                        "payload": snippet3 + "s_t" + "jobsummary" + "s_t" + url3 + "s_t" + jobrole + "s_t" + location,
+                        "payload": snippet3 + "s_t" + "jobsummary" + "s_t" + url3 + "s_t" + jobrole + "s_t" + locationisend,
             },{
                 "type": "web_url",
                 "url": url3,
@@ -469,6 +470,7 @@ function richMessagewithHelp(recipientId, company1, company2, company3, jobtitle
 var imageurl2 = "https://s3-us-west-1.amazonaws.com/havenchatbot/green_postback_greyKoala-01.png";
 var imageurl1 = "https://s3-us-west-1.amazonaws.com/havenchatbot/purple_postback_pinkKoala-01.png";
 var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_greyKoala-01.png";
+var locationisend = location;
             message = {
                 "attachment": {
                     "type": "template",
@@ -481,7 +483,7 @@ var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_g
                             "buttons": [{
                                 "type": "postback",
                                 "title": "View Job Overview",
-                                "payload":snippet1 + "s_t" + "jobsummary" + "s_t" + url1 + "s_t" + jobrole + "s_t" + location,
+                                "payload":snippet1 + "s_t" + "jobsummary" + "s_t" + url1 + "s_t" + jobrole + "s_t" + locationisend,
                             },{
                                 "type": "web_url",
                                 "url": url1,
@@ -496,7 +498,7 @@ var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_g
                             "buttons": [{
                                 "type": "postback",
                                 "title": "View Job Overview",
-                                "payload": snippet2 + "s_t" + "jobsummary" + "s_t" + url2 + "s_t" + jobrole + "s_t" + location,
+                                "payload": snippet2 + "s_t" + "jobsummary" + "s_t" + url2 + "s_t" + jobrole + "s_t" + locationisend,
                     },{
                         "type": "web_url",
                         "url": url2,
@@ -510,7 +512,7 @@ var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_g
                     "buttons": [{
                         "type": "postback",
                         "title": "View Job Overview",
-                        "payload": snippet3 + "s_t" + "jobsummary" + "s_t" + url3 + "s_t" + jobrole + "s_t" + location,
+                        "payload": snippet3 + "s_t" + "jobsummary" + "s_t" + url3 + "s_t" + jobrole + "s_t" + locationisend,
             },{
                 "type": "web_url",
                 "url": url3,
