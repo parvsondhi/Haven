@@ -393,6 +393,9 @@ var imageurl2 = "https://s3-us-west-1.amazonaws.com/havenchatbot/green_postback_
 var imageurl1 = "https://s3-us-west-1.amazonaws.com/havenchatbot/purple_postback_pinkKoala-01.png";
 var imageurl3 = "https://s3-us-west-1.amazonaws.com/havenchatbot/blue_postback_greyKoala-01.png";
 var locationisend = location;
+console.log("printing location")
+console.log(location)
+console.log(locationisend)
             message = {
                 "attachment": {
                     "type": "template",
