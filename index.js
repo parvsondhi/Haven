@@ -284,9 +284,9 @@ else {
               // url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&q=data%20science&l=san%20francisco&format=json&limit=3&v=2',
               method: 'GET',
               replytext: replytext,
-              locsend: locationtobesearched,
+              locsend: "houston",
               rolesend: roletobesearched,
-              qs: {q: roletobesearched, l: locationtobesearched},
+              qs: {q: roletobesearched, l: "houston"},
           }, function(error, response, body) {
               var data = JSON.parse(body);
               console.log("data hopefully displayed:");
