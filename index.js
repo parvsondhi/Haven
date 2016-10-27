@@ -5,7 +5,7 @@ var app = express();
 var apiai = require('apiai');
 var appai = apiai("c0f2b205eeaa485c8ec3b2172f750b2f");
 var loc_city = "";
-loc_city = "austin"
+// loc_city = "austin"
 var random_quotes = ["https://s3-us-west-1.amazonaws.com/havenchatbot/quote5-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote6-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote1-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote4-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote8-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote7-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote2-01.png"]
 
 
@@ -149,7 +149,18 @@ else {
               rolesend = response.result.parameters.role
               locsend = response.result.parameters.geocity
               //loc_city = locsend
-              if(response.result.parameters.geocity && response.result.parameters.role) {
+
+              if(response.result.parameters.defaultlocation){
+                if(response.result.parameters.geocity){
+                loc_city = response.result.parameters.geocity;}
+                if(response.result.parameters.geostate){
+                  loc_city = response.result.parameters.geostate;
+                }
+                sendButtonMessage(event.sender.id, replytext)
+
+
+              }
+              else if(response.result.parameters.geocity && response.result.parameters.role) {
                 request({
                     url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&format=json&limit=20&v=2',
                     // url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&q=data%20science&l=san%20francisco&format=json&limit=3&v=2',
