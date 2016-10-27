@@ -287,12 +287,12 @@ else {
               locsend: seloc,
               rolesend: roletobesearched,
               qs: {q: roletobesearched, l: seloc},
-          }, function(error, response, body) {
+          }, function(error, response, body, locsend) {
               var data = JSON.parse(body);
               console.log("data hopefully displayed:");
               //console.log(event.message.text)
               console.log(rolesend);
-              console.log(qs);
+              console.log(locsend);
               console.log("is this is the issue")
               //console.log(replytext);
               random_numbers = findrandom();
