@@ -277,23 +277,24 @@ else {
           var roletobesearched = newstring[2];
           var seloc = newstring[3];
           console.log(roletobesearched)
-          console.log(locationtobesearched)
+          //console.log(locationtobesearched)
           replytext = event.sender.id
           request({
               url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&format=json&limit=20&v=2',
               // url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&q=data%20science&l=san%20francisco&format=json&limit=3&v=2',
               method: 'GET',
               replytext: replytext,
-              locsend: seloc,
+              newval: seloc,
               rolesend: roletobesearched,
               qs: {q: roletobesearched, l: seloc},
-          }, function(error, response, body, locsend) {
+          }, function(error, response, body, newval) {
               var data = JSON.parse(body);
               console.log("data hopefully displayed:");
               //console.log(event.message.text)
               console.log(rolesend);
-              console.log(locsend);
+              console.log(newval);
               console.log("is this is the issue")
+              console.log(body)
               //console.log(replytext);
               random_numbers = findrandom();
               i = random_numbers[0]
