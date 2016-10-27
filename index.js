@@ -357,11 +357,12 @@ function sendButtonMessage2(recipientId,message,urlvalue,role,location) {
             "type": "web_url",
             "url": urlvalue,
             "title": "Apply To Job"
-          }, {
-            "type": "postback",
-            "title": "View more Jobs",
-            "payload": "emptys_tfindmores_t" + role + "s_t" + location + "s_tend"
-          }]
+          // }, {
+          //   "type": "postback",
+          //   "title": "View more Jobs",
+          //   "payload": "emptys_tfindmores_t" + role + "s_t" + location + "s_tend"
+          // }
+        ]
         }
       }
     };
@@ -391,6 +392,7 @@ function sendButtonMessage(recipientId,message) {
 
   sendMessage(recipientId,messageData);
 }
+
 
 
 function richMessage(recipientId, company1, company2, company3, jobtitle1, jobtitle2, jobtitle3, url1, url2, url3, snippet1, snippet2, snippet3, jobrole, location) {
