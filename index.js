@@ -287,7 +287,7 @@ else {
               newval: seloc,
               rolesend: roletobesearched,
               qs: {q: roletobesearched, l: seloc},
-          }, function(error, response, body, newval) {
+          }, function(error, response, body) {
               var data = JSON.parse(body);
               console.log("data hopefully displayed:");
               //console.log(event.message.text)
@@ -300,7 +300,7 @@ else {
               i = random_numbers[0]
               j = random_numbers[1]
               k = random_numbers[2]
-              richMessage(replytext, data.results[i].company, data.results[j].company, data.results[k].company, data.results[i].jobtitle, data.results[j].jobtitle, data.results[k].jobtitle, data.results[i].url, data.results[j].url, data.results[k].url, data.results[i].snippet, data.results[j].snippet, data.results[k].snippet,rolesend, locsend)
+              richMessage(replytext, data.results[i].company, data.results[j].company, data.results[k].company, data.results[i].jobtitle, data.results[j].jobtitle, data.results[k].jobtitle, data.results[i].url, data.results[j].url, data.results[k].url, data.results[i].snippet, data.results[j].snippet, data.results[k].snippet,rolesend, newval)
 
           });
 
