@@ -147,8 +147,8 @@ else {
               console.log(response.result.parameters.role)
               replytext = response.result.fulfillment.speech
               rolesend = response.result.parameters.role
-              var newval;
-              locsend = loc_city
+
+              //locsend = loc_city
               locsend = response.result.parameters.geocity
               //loc_city = locsend
 
@@ -285,7 +285,7 @@ else {
               // url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&q=data%20science&l=san%20francisco&format=json&limit=3&v=2',
               method: 'GET',
               replytext: replytext,
-              newval: seloc,
+              locsend: seloc,
               rolesend: roletobesearched,
               qs: {q: roletobesearched, l: seloc},
           }, function(error, response, body) {
@@ -293,7 +293,7 @@ else {
               console.log("data hopefully displayed:");
               //console.log(event.message.text)
               console.log(rolesend);
-              console.log(newval);
+              console.log(locsend);
               console.log("is this is the issue")
               //console.log(body)
               //console.log(replytext);
@@ -301,7 +301,7 @@ else {
               i = random_numbers[0]
               j = random_numbers[1]
               k = random_numbers[2]
-              richMessage(replytext, data.results[i].company, data.results[j].company, data.results[k].company, data.results[i].jobtitle, data.results[j].jobtitle, data.results[k].jobtitle, data.results[i].url, data.results[j].url, data.results[k].url, data.results[i].snippet, data.results[j].snippet, data.results[k].snippet,rolesend, newval)
+              richMessage(replytext, data.results[i].company, data.results[j].company, data.results[k].company, data.results[i].jobtitle, data.results[j].jobtitle, data.results[k].jobtitle, data.results[i].url, data.results[j].url, data.results[k].url, data.results[i].snippet, data.results[j].snippet, data.results[k].snippet,rolesend, locsend)
 
           });
 
