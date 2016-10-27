@@ -191,13 +191,14 @@ else {
                 replytext = "I found " + response.result.parameters.role + " jobs for you in " + loc_city + " If you want me to find similar roles in another city, try something like 'Find " + response.result.parameters.role + " jobs in Charleston'";
                 console.log("loc_city#######))))))")
                 console.log(loc_city)
+                locationcity = loc_city
                 request({
                     url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&format=json&limit=20&v=2',
                     // url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&q=data%20science&l=san%20francisco&format=json&limit=3&v=2',
                     method: 'GET',
                     replytext: replytext,
                     rolesend: rolesend,
-                    locsend: loc_city,
+                    locsend: locationcity,
                     qs: {q: response.result.parameters.role, l: loc_city},
                 }, function(error, response, body) {
                     var data = JSON.parse(body);
