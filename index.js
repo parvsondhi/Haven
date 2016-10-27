@@ -370,7 +370,7 @@ function sendButtonMessage2(recipientId,message,urlvalue,role,location) {
 {
 "content_type":"text",
 "title":"Find More Jobs",
-"payload":"emptys_tfindmores_t" + jobrole + "s_t" + location + "s_tend"
+"payload":"emptys_tfindmores_t" + role + "s_t" + location + "s_tend"
 }]
     };
 
