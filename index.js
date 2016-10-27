@@ -292,7 +292,7 @@ else {
               console.log("data hopefully displayed:");
               //console.log(event.message.text)
               console.log(rolesend);
-              console.log(qs['l']);
+              console.log(qs);
               console.log("is this is the issue")
               //console.log(replytext);
               random_numbers = findrandom();
