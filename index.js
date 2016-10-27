@@ -276,8 +276,8 @@ else {
         else if (!(newstring[1].localeCompare("findmore"))) {
           var roletobesearched = newstring[2];
           var locationtobesearched = newstring[3];
-          console.log(roletobesearched)
-          console.log(locationtobesearched)
+          console.log(typeof roletobesearched)
+          console.log(typeof locationtobesearched)
           replytext = event.sender.id
           request({
               url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&format=json&limit=20&v=2',
