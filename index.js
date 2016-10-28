@@ -342,6 +342,22 @@ else {
           sendMessage(event.sender.id, {text: "Hi. I'm Haven and am here to help you convert your passion into profession and have fun along the way. You can say things like the following: \n\n- Find me a software engineering role\n- Find data science jobs in San Francisco\n- Find me a job in New York\n- I want to take a break\n\nOr you can just chat with me"})
 
         }
+
+        else if (!(newstring[1].localeCompare("reset"))){
+          var requestai = appai.textRequest("reset");
+          requestai.on('response', function(response) {
+            replytext = response.result.fulfillment.speech
+            sendMessage(event.sender.id,{text: replytext})
+
+          });
+          requestai.on('error', function(error) {
+           console.log(error);
+          });
+
+          requestai.end();
+
+        }
+
         else if (!(newstring[1].localeCompare("takeabreak"))){
 
           var x = Math.floor((Math.random() * 17));
