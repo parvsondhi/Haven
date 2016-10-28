@@ -339,7 +339,7 @@ else {
 
         }
         else if (!(newstring[1].localeCompare("helpsetting"))){
-          sendMessage(event.sender.id, {text: "I can help you"})
+          sendMessage(event.sender.id, {text: "I can \n help you"})
 
         }
         else if (!(newstring[1].localeCompare("takeabreak"))){
