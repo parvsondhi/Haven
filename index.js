@@ -124,12 +124,12 @@ else if (event.message.text.toLowerCase().includes("break")) {
      "quick_replies":[
 {
   "content_type":"text",
-  "title":"Take a Break",
+  "title":"Back to Search",
   "payload":"nothing"
 },
 {
   "content_type":"text",
-  "title":"Back to Search",
+  "title":"Take a Break",
   "payload":"nothing"
 }]
    };
