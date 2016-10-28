@@ -338,6 +338,35 @@ else {
           });
 
         }
+        else if (!(newstring[1].localeCompare("helpsetting"))){
+          sendMessage(event.sender.id, {text: "I can help you"})
+
+        }
+        else if (!(newstring[1].localeCompare("takeabreak"))){
+
+          var x = Math.floor((Math.random() * 17));
+          console.log(random_quotes[x]);
+          messageData = {
+             "attachment": {
+               "type": "image",
+               "payload": {
+                "url":random_quotes[x]
+              }
+             },
+             "quick_replies":[
+        {
+          "content_type":"text",
+          "title":"Back to Search",
+          "payload":"nothing"
+        },
+        {
+          "content_type":"text",
+          "title":"Take a Break",
+          "payload":"nothing"
+        }]
+           };
+           sendMessage(event.sender.id,messageData)
+        }
         else {
 
           sendMessage(event.sender.id, {text: newstring[0]})
