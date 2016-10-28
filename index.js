@@ -339,7 +339,7 @@ else {
 
         }
         else if (!(newstring[1].localeCompare("helpsetting"))){
-          sendMessage(event.sender.id, {text: "Hi. I'm Haven and am here to help you convert your passion into profession and have fun along the way. You can say things like the following: \n\nFind me a software engineering role\nFind data science roles in San Francisco\nFind me a job in New York\nI feel like taking a break\nReset \n\nOr you can just chat with me"})
+          sendMessage(event.sender.id, {text: "Hi. I'm Haven and am here to help you convert your passion into profession and have fun along the way. You can say things like the following: \n\n-Find me a software engineering role\n-Find data science jobs in San Francisco\n-Find me a job in New York\n-I feel like taking a break\n\nOr you can just chat with me"})
 
         }
         else if (!(newstring[1].localeCompare("takeabreak"))){
