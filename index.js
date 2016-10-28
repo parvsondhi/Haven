@@ -389,15 +389,21 @@ function sendButtonMessage2(recipientId,message,urlvalue,role,location) {
             "type": "web_url",
             "url": urlvalue,
             "title": "Apply To Job"
-          },
-          {
-            "type": "postback",
-            "title": "View more Jobs",
-            "payload": "emptys_tfindmores_t" + role + "s_t" + location + "s_tend"
           }
+          //,
+          // {
+          //   "type": "postback",
+          //   "title": "View more Jobs",
+          //   "payload": "emptys_tfindmores_t" + role + "s_t" + location + "s_tend"
+          // }
         ]
         }
-      }
+      },"quick_replies":[
+      {
+      "content_type":"text",
+      "title":"Find More Jobs",
+      "payload":"emptys_tfindmores_t" + role + "s_t" + location + "s_tend"
+      }]
 
     };
 //   messageData = {
