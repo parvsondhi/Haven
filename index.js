@@ -178,6 +178,7 @@ else {
                     console.log(event.message.text)
                     console.log(data.results[1].company);
                     console.log("is this is the issue")
+                    console.log(loc_city)
                     console.log(replytext);
                     sendMessage(event.sender.id,{text: replytext})
                     random_numbers = findrandom();
@@ -264,6 +265,7 @@ else {
           var regex = /(<([^>]+)>)|(\s&amp)/ig;
           result = newstring[0].replace(regex, "");
           // if(event.postback.title == "Show Job Summary")
+          console.log(loc_city)
           console.log("##@@!!!!!!!!!!!!!!")
           console.log(newstring[0])
           console.log(newstring[1])
