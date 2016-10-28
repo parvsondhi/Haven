@@ -192,6 +192,7 @@ else {
               }
 
               else if(!(response.result.parameters.geocity) && response.result.parameters.role) {
+                console.log("THIS IS THE CITY THAT SENT" + loc_city)
                 request({
                     url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&format=json&limit=20&v=2',
                     // url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&q=data%20science&l=san%20francisco&format=json&limit=3&v=2',
