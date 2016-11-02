@@ -125,14 +125,16 @@ app.post('/webhook', function (req, res) {
     url: 'https://maps.googleapis.com/maps/api/geocode/json?',
     // url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&q=data%20science&l=san%20francisco&format=json&limit=3&v=2',
     method: 'GET',
+    replytext: replytext,
     qs: {address: locationtobesearched},
 }, function(error, response, body) {
     var data = JSON.parse(body);
     console.log("data hopefully displayed:");
-    console.log(data);
-    // var x = data.results[0].formatted_address
-    // var y = x.split(", ")[1]
-    // console.log(y)
+    //console.log(data);
+    var x = data.results[0].formatted_address
+    var y = x.split(", ")[1]
+    console.log(y)
+    sendMessage(replytext,"Hello")
 
 });
 
