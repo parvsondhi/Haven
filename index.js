@@ -134,7 +134,7 @@ app.post('/webhook', function (req, res) {
     var x = data.results[0].formatted_address
     var y = x.split(", ")[1]
     console.log(y)
-    sendMessage(replytext,"Hello")
+    sendMessage(replytext,{text: "Have a KitKat"})
 
 });
 
