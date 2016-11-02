@@ -410,6 +410,8 @@ else if (response.result.parameters.depression)
         }
         else if(!(newstring[1].localeCompare("meetupoverview")))
         {
+          console.log(newstring[2])
+          console.log(newstring[3])
           sendButtonMessage3(event.sender.id,newstring[2],newstring[3])
         }
         else if (!(newstring[1].localeCompare("helpsetting"))){
