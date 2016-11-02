@@ -735,7 +735,7 @@ console.log(locationisend)
                             "buttons": [{
                                 "type": "postback",
                                 "title": "View Meetup Overview",
-                                "payload":snippet1 + "s_t" + "jobsummary" + "s_t" + url1 + "s_t" + jobrole + "s_t" + location + "s_tend"
+                                "payload":"nothin"
                             },{
                                 "type": "weburl",
                                 "url": url1,
