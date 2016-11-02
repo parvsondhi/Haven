@@ -737,8 +737,8 @@ console.log(locationisend)
                                 "title": "View Meetup Overview",
                                 "payload":"nothin"
                             },{
-                                "type": "weburl",
-                                "url": url1,
+                                "type": "web_url",
+                                "url": weburl,
                                 "title": "Go To Meetup"
                                 }],
 
