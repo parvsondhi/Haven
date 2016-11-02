@@ -218,7 +218,7 @@ else {
 
               }
 
-else if (response.result.metadata.parameters.depression)
+else if (response.result.parameters.depression)
 {
   replytext = response.result.fulfillment.speech
   sendMessage(event.sender.id,{text: replytext})
