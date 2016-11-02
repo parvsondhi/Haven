@@ -141,7 +141,7 @@ app.post('/webhook', function (req, res) {
     // url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&q=data%20science&l=san%20francisco&format=json&limit=3&v=2',
     method: 'GET',
     state:y,
-    locationtobesearched: locationtobesearched
+    locationtobesearched: locationtobesearched,
     qs: {search: roletobesearched},
 }, function(error, response, body) {
     var data = JSON.parse(body);
