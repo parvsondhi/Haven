@@ -170,7 +170,7 @@ app.post('/webhook', function (req, res) {
     result = data.results[0].description.replace(regex, "");
     console.log(result)
 
-    meetupMessage(replytext,data.results[0].event_url,data.results[0].name,data.results[0].group.name)
+    meetupMessage(replytext,data.results[0].event_url,data.results[0].name,data.results[0].group.name,result)
 //sendMessage(replytext,{text: "Have a KitKat"})
 
 });
@@ -408,6 +408,10 @@ else if (response.result.parameters.depression)
           });
 
         }
+        else if(!(newstring[1].localeCompare("meetupoverview")))
+        {
+          sendButtonMessage3(event.sender.id,newstring[2],newstring[3])
+        }
         else if (!(newstring[1].localeCompare("helpsetting"))){
           sendMessage(event.sender.id, {text: "Hi. I'm Haven and am here to help you convert your passion into profession and have fun along the way. You can say things like the following: \n\n- Find me a software engineering role\n- Find data science jobs in San Francisco\n- Find me a job in New York\n- I want to take a break\n\nOr you can just chat with me"})
 
@@ -510,6 +514,35 @@ function sendButtonMessage2(recipientId,message,urlvalue,role,location) {
             "title": "View more Jobs",
             "payload": "emptys_tfindmores_t" + role + "s_t" + location + "s_tend"
           }
+        ]
+        }
+      }
+
+    };
+
+
+  sendMessage(recipientId,messageData);
+}
+
+
+function sendButtonMessage3(recipientId,message,urlvalue) {
+   messageData = {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "button",
+          "text": message,
+          "buttons":[{
+            "type": "web_url",
+            "url": urlvalue,
+            "title": "Go To Meetup"
+          }
+          // ,
+          // {
+          //   "type": "postback",
+          //   "title": "View more Jobs",
+          //   "payload": "emptys_tfindmores_t" + role + "s_t" + location + "s_tend"
+          // }
         ]
         }
       }
@@ -721,7 +754,7 @@ var locationisend = location;
 };
 
 
-function meetupMessage(recipientId, weburl, eventname, meetupname) {
+function meetupMessage(recipientId, weburl, eventname, meetupname,result) {
 
 
 
@@ -742,7 +775,7 @@ console.log(locationisend)
                             "buttons": [{
                                 "type": "postback",
                                 "title": "View Meetup Overview",
-                                "payload":"nothin"
+                                "payload":"emptys_tmeetupoverviews_t" + result + "s_t" + weburl + "s_tend"
                             },{
                                 "type": "web_url",
                                 "url": weburl,
