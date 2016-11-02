@@ -136,6 +136,33 @@ else if (event.message.text.toLowerCase().includes("break")) {
    sendMessage(event.sender.id,messageData)
   //sendMessage(event.sender.id,{text: "Have a KitKat"})
 }
+
+else if (event.message.text.toLowerCase().includes("tired")) {
+  var x = Math.floor((Math.random() * 17));
+  console.log(random_quotes[x]);
+  messageData = {
+     "attachment": {
+       "type": "image",
+       "payload": {
+        "url":random_quotes[x]
+      }
+     },
+     "quick_replies":[
+{
+  "content_type":"text",
+  "title":"Back to Search",
+  "payload":"nothing"
+},
+{
+  "content_type":"text",
+  "title":"Take a Break",
+  "payload":"nothing"
+}]
+   };
+   sendMessage(event.sender.id,messageData)
+  //sendMessage(event.sender.id,{text: "Have a KitKat"})
+}
+
 else {
             console.log("hello " + event.message.text)
             var requestai = appai.textRequest(event.message.text);
