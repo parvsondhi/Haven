@@ -177,7 +177,13 @@ app.post('/webhook', function (req, res) {
     //console.log("data hopefully displayed:");
     //var x = data.results[0].formatted_address
     //var y = x.split(", ")[1]
-    var x = Math.floor((Math.random() * 4));
+    if(data.meta.count < 4)
+    {
+      x = 0;
+    }
+else{
+    x = Math.floor((Math.random() * 4));
+}
     console.log(data)
     console.log(data.results[x].group.name)
     console.log(data.results[x].event_url)
