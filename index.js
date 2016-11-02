@@ -153,12 +153,14 @@ app.post('/webhook', function (req, res) {
     // url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&q=data%20science&l=san%20francisco&format=json&limit=3&v=2',
     method: 'GET',
     state:y,
+    roletobesearched: roletobesearched,
     locationtobesearched: locationtobesearched,
     qs: {search: roletobesearched},
 }, function(error, response, body) {
     var data = JSON.parse(body);
     state = y;
     locationtobesearched = locationtobesearched
+    roletobesearched = roletobesearched
     //console.log("data hopefully displayed:");
     //var x = data.results[0].formatted_address
     //var y = x.split(", ")[1]
@@ -168,6 +170,7 @@ app.post('/webhook', function (req, res) {
     url: 'https://api.meetup.com/2/open_events?&sign=true&photo-host=public&country=US&page=20&key=a532f1b44565f4e291268586e354e30',
     // url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&q=data%20science&l=san%20francisco&format=json&limit=3&v=2',
     method: 'GET',
+    roletobesearched: roletobesearched,
     qs: {topic: x, state: state, city: locationtobesearched},
 }, function(error, response, body) {
     var data = JSON.parse(body);
@@ -181,8 +184,8 @@ app.post('/webhook', function (req, res) {
     var regex = /(<([^>]+)>)|(\s&amp)/ig;
     result = data.results[0].description.replace(regex, "");
     console.log(result)
-
-    meetupMessage(replytext,data.results[0].event_url,data.results[0].name,data.results[0].group.name,result)
+    chunk = chunkSubstr(result,850)
+    meetupMessage(replytext,data.results[0].event_url,data.results[0].name,data.results[0].group.name,chunk[0],roletobesearched,locationtobesearched)
 //sendMessage(replytext,{text: "Have a KitKat"})
 
 });
@@ -424,7 +427,9 @@ else if (response.result.parameters.depression)
         {
           console.log(newstring[2])
           console.log(newstring[3])
-          chunks = chunkSubstr(newstring[2],280)
+          console.log(newstring[4])
+          console.log(newstring[5])
+          chunks = chunkSubstr(newstring[2],270)
           length = chunks.length-1;
           for(i=0;i<chunks.length;i++)
           {
@@ -780,7 +785,7 @@ var locationisend = location;
 };
 
 
-function meetupMessage(recipientId, weburl, eventname, meetupname,result) {
+function meetupMessage(recipientId, weburl, eventname, meetupname,result, rolesend, locsend) {
 
 
 
@@ -801,7 +806,7 @@ console.log(locationisend)
                             "buttons": [{
                                 "type": "postback",
                                 "title": "View Meetup Overview",
-                                "payload":"emptys_tmeetupoverviews_t" + result + "s_t" + weburl + "s_tend"
+                                "payload":"emptys_tmeetupoverviews_t" + result + "s_t" + weburl + "s_t" + rolesend + "s_t" + locsend + "s_tend"
                             },{
                                 "type": "web_url",
                                 "url": weburl,
