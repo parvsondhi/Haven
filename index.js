@@ -428,9 +428,12 @@ else if (response.result.parameters.depression)
           for(i=0;i<chunks.length;i++)
           {
             if(i == chunks.length-1){
-              endButtonMessage3(event.sender.id,chunks[i],newstring[3])
+              sendButtonMessage3(event.sender.id,chunks[i],newstring[3])
             }
-            sendMessage(event.sender.id, {text:chunks[i]})
+            else {
+              sendMessage(event.sender.id, {text:chunks[i]})
+            }
+
           }
           //sendButtonMessage3(event.sender.id,newstring[2],newstring[3])
         }
