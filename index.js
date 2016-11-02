@@ -425,9 +425,10 @@ else if (response.result.parameters.depression)
           console.log(newstring[2])
           console.log(newstring[3])
           chunks = chunkSubstr(newstring[2],280)
+          length = chunks.length-1;
           for(i=0;i<chunks.length;i++)
           {
-            if(i == chunks.length-1){
+            if(i === length){
               sendButtonMessage3(event.sender.id,chunks[i],newstring[3])
             }
             else {
