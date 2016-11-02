@@ -162,8 +162,8 @@ app.post('/webhook', function (req, res) {
     //console.log("data hopefully displayed:");
     //var x = data.results[0].formatted_address
     //var y = x.split(", ")[1]
-    console.log(data)
-
+    console.log(data.results[0].event_url)
+    console.log(data.results[0].name)
 sendMessage(replytext,{text: "Have a KitKat"})
 
 });
