@@ -126,6 +126,8 @@ app.post('/webhook', function (req, res) {
     // url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&q=data%20science&l=san%20francisco&format=json&limit=3&v=2',
     method: 'GET',
     replytext: replytext,
+    roletobesearched: roletobesearched,
+    locationtobesearched: locationtobesearched,
     qs: {address: locationtobesearched},
 }, function(error, response, body) {
     var data = JSON.parse(body);
@@ -134,7 +136,41 @@ app.post('/webhook', function (req, res) {
     var x = data.results[0].formatted_address
     var y = x.split(", ")[1]
     console.log(y)
-    sendMessage(replytext,{text: "Have a KitKat"})
+    request({
+    url: 'https://api.meetup.com/topics/?key=a532f1b44565f4e291268586e354e30&page=1',
+    // url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&q=data%20science&l=san%20francisco&format=json&limit=3&v=2',
+    method: 'GET',
+    state:y,
+    locationtobesearched: locationtobesearched
+    qs: {search: roletobesearched},
+}, function(error, response, body) {
+    var data = JSON.parse(body);
+    state = y;
+    locationtobesearched = locationtobesearched
+    //console.log("data hopefully displayed:");
+    //var x = data.results[0].formatted_address
+    //var y = x.split(", ")[1]
+    console.log(data.results[0].urlkey)
+    x = data.results[0].urlkey
+    request({
+    url: 'https://api.meetup.com/2/open_events?&sign=true&photo-host=public&country=US&page=1&key=a532f1b44565f4e291268586e354e30',
+    // url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&q=data%20science&l=san%20francisco&format=json&limit=3&v=2',
+    method: 'GET',
+    qs: {topic: x, state: state, city: locationtobesearched},
+}, function(error, response, body) {
+    var data = JSON.parse(body);
+    //console.log("data hopefully displayed:");
+    //var x = data.results[0].formatted_address
+    //var y = x.split(", ")[1]
+    console.log(data)
+
+sendMessage(replytext,{text: "Have a KitKat"})
+
+});
+
+});
+
+    //sendMessage(replytext,{text: "Have a KitKat"})
 
 });
 
