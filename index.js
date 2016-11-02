@@ -177,15 +177,16 @@ app.post('/webhook', function (req, res) {
     //console.log("data hopefully displayed:");
     //var x = data.results[0].formatted_address
     //var y = x.split(", ")[1]
+    var x = Math.floor((Math.random() * 4));
     console.log(data)
-    console.log(data.results[0].group.name)
-    console.log(data.results[0].event_url)
-    console.log(data.results[0].name)
+    console.log(data.results[x].group.name)
+    console.log(data.results[x].event_url)
+    console.log(data.results[x].name)
     var regex = /(<([^>]+)>)|(\s&amp)/ig;
-    result = data.results[0].description.replace(regex, "");
+    result = data.results[x].description.replace(regex, "");
     console.log(result)
     chunk = chunkSubstr(result,850)
-    meetupMessage(replytext,data.results[0].event_url,data.results[0].name,data.results[0].group.name,chunk[0],roletobesearched,locationtobesearched)
+    meetupMessage(replytext,data.results[x].event_url,data.results[x].name,data.results[x].group.name,chunk[x],roletobesearched,locationtobesearched)
 //sendMessage(replytext,{text: "Have a KitKat"})
 
 });
@@ -434,7 +435,7 @@ else if (response.result.parameters.depression)
           for(i=0;i<chunks.length;i++)
           {
             if(i === length){
-              sendButtonMessage3(event.sender.id,chunks[i],newstring[3])
+              sendButtonMessage3(event.sender.id,chunks[i],newstring[3],newstring[4],newstring[5])
             }
             else {
               sendMessage(event.sender.id, {text:chunks[i]})
@@ -556,7 +557,7 @@ function sendButtonMessage2(recipientId,message,urlvalue,role,location) {
 }
 
 
-function sendButtonMessage3(recipientId,message,urlvalue) {
+function sendButtonMessage3(recipientId,message,urlvalue,role,location) {
    messageData = {
       "attachment": {
         "type": "template",
@@ -568,12 +569,12 @@ function sendButtonMessage3(recipientId,message,urlvalue) {
             "url": urlvalue,
             "title": "Go To Meetup"
           }
-          // ,
-          // {
-          //   "type": "postback",
-          //   "title": "View more Jobs",
-          //   "payload": "emptys_tfindmores_t" + role + "s_t" + location + "s_tend"
-          // }
+          ,
+          {
+            "type": "postback",
+            "title": "View more Jobs",
+            "payload": "emptys_tfindmores_t" + role + "s_t" + location + "s_tend"
+          }
         ]
         }
       }
