@@ -218,7 +218,33 @@ else {
 
               }
 
-
+else if (response.result.metadata.parameters.depression)
+{
+  replytext = response.result.fulfillment.speech
+  sendMessage(event.sender.id,{text: replytext})
+  var x = Math.floor((Math.random() * 17));
+  console.log(random_quotes[x]);
+  messageData = {
+     "attachment": {
+       "type": "image",
+       "payload": {
+        "url":random_quotes[x]
+      }
+     },
+     "quick_replies":[
+{
+  "content_type":"text",
+  "title":"Back to Search",
+  "payload":"nothing"
+},
+{
+  "content_type":"text",
+  "title":"Take a Break",
+  "payload":"nothing"
+}]
+   };
+   sendMessage(event.sender.id,messageData)
+}
 
               else if(response.result.parameters.No){
                 sendButtonMessage(event.sender.id, replytext)
