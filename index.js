@@ -164,7 +164,8 @@ app.post('/webhook', function (req, res) {
     //var y = x.split(", ")[1]
     console.log(data.results[0].event_url)
     console.log(data.results[0].name)
-sendMessage(replytext,{text: "Have a KitKat"})
+    meetupMessage(replytext,data.results[0].event_url,data.results[0].name)
+//sendMessage(replytext,{text: "Have a KitKat"})
 
 });
 
@@ -702,6 +703,58 @@ var locationisend = location;
 "content_type":"text",
 "title":"Take a Break",
 "payload":"emptys_tbreaks_t" + jobrole + "s_t" + location + "s_tend"
+}]
+
+
+            };
+
+            sendMessage(recipientId, message);
+
+            return true;
+
+};
+
+
+function meetupMessage(recipientId, weburl, eventname) {
+
+
+
+var imageurl2 = "https://s3-us-west-1.amazonaws.com/havenchatbot/green_postback_greyKoala-01.png";
+var locationisend = location;
+console.log("printing location")
+console.log(location)
+console.log(locationisend)
+            message = {
+                "attachment": {
+                    "type": "template",
+                    "payload": {
+                        "template_type": "generic",
+                        "elements": [{
+                            "title": eventname,
+                            "image_url": imageurl1 ,
+                            "buttons": [{
+                                "type": "postback",
+                                "title": "View Meetup Overview",
+                                "payload":snippet1 + "s_t" + "jobsummary" + "s_t" + url1 + "s_t" + jobrole + "s_t" + location + "s_tend"
+                            },{
+                                "type": "weburl",
+                                "url": url1,
+                                "title": "Go To Meetup"
+                                }],
+
+                          }
+
+
+                  ]
+                    }
+                },
+                "quick_replies":[
+
+
+{
+  "content_type":"text",
+  "title":"Take a Break",
+  "payload":"nothin"
 }]
 
 
