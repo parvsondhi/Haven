@@ -153,7 +153,7 @@ app.post('/webhook', function (req, res) {
     console.log(data.results[0].urlkey)
     x = data.results[0].urlkey
     request({
-    url: 'https://api.meetup.com/2/open_events?&sign=true&photo-host=public&country=US&page=1&key=a532f1b44565f4e291268586e354e30',
+    url: 'https://api.meetup.com/2/open_events?&sign=true&photo-host=public&country=US&page=2&key=a532f1b44565f4e291268586e354e30',
     // url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&q=data%20science&l=san%20francisco&format=json&limit=3&v=2',
     method: 'GET',
     qs: {topic: x, state: state, city: locationtobesearched},
@@ -162,10 +162,11 @@ app.post('/webhook', function (req, res) {
     //console.log("data hopefully displayed:");
     //var x = data.results[0].formatted_address
     //var y = x.split(", ")[1]
-    console.log(data.results[0].group)
+    console.log(data)
+    console.log(data.results[0].group.name)
     console.log(data.results[0].event_url)
     console.log(data.results[0].name)
-    meetupMessage(replytext,data.results[0].event_url,data.results[0].name,data.results[0].group)
+    meetupMessage(replytext,data.results[0].event_url,data.results[0].name,data.results[0].group.name)
 //sendMessage(replytext,{text: "Have a KitKat"})
 
 });
