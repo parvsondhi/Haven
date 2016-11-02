@@ -186,6 +186,10 @@ app.post('/webhook', function (req, res) {
     result = data.results[x].description.replace(regex, "");
     console.log(result)
     chunk = chunkSubstr(result,850)
+    if(!(chunk.localeCompare("undefined")))
+    {
+      chunk = "No Overview Provided"
+    }
     meetupMessage(replytext,data.results[x].event_url,data.results[x].name,data.results[x].group.name,chunk[x],roletobesearched,locationtobesearched)
 //sendMessage(replytext,{text: "Have a KitKat"})
 
@@ -435,6 +439,7 @@ else if (response.result.parameters.depression)
           for(i=0;i<chunks.length;i++)
           {
             if(i === length){
+
               sendButtonMessage3(event.sender.id,chunks[i],newstring[3],newstring[4],newstring[5])
             }
             else {
