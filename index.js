@@ -165,7 +165,7 @@ app.post('/webhook', function (req, res) {
     console.log(data.results[0].group)
     console.log(data.results[0].event_url)
     console.log(data.results[0].name)
-    meetupMessage(replytext,data.results[0].event_url,data.results[0].name)
+    meetupMessage(replytext,data.results[0].event_url,data.results[0].name,data.results[0].group)
 //sendMessage(replytext,{text: "Have a KitKat"})
 
 });
@@ -716,7 +716,7 @@ var locationisend = location;
 };
 
 
-function meetupMessage(recipientId, weburl, eventname) {
+function meetupMessage(recipientId, weburl, eventname, meetupname) {
 
 
 
@@ -732,6 +732,7 @@ console.log(locationisend)
                         "template_type": "generic",
                         "elements": [{
                             "title": eventname,
+                            "subtitle": meetupname,
                             "image_url": imageurl1 ,
                             "buttons": [{
                                 "type": "postback",
