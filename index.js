@@ -111,6 +111,36 @@ app.post('/webhook', function (req, res) {
 
           }
 
+          else if (!(event.message.text.localeCompare("Find Related Meetup"))) {
+            console.log(event.message.quick_reply.payload)
+            var newstring = event.message.quick_reply.payload.split("s_t")
+            var roletobesearched = newstring[2];
+            var locationtobesearched = newstring[3];
+            console.log(roletobesearched)
+            console.log(locationtobesearched)
+            replytext = event.sender.id
+
+
+            request({
+    url: 'https://maps.googleapis.com/maps/api/geocode/json?',
+    // url: 'http://api.indeed.com/ads/apisearch?publisher=7366968708885971&q=data%20science&l=san%20francisco&format=json&limit=3&v=2',
+    method: 'GET',
+    qs: {address: locationtobesearched},
+}, function(error, response, body) {
+    var data = JSON.parse(body);
+    console.log("data hopefully displayed:");
+    console.log(data);
+    // var x = data.results[0].formatted_address
+    // var y = x.split(", ")[1]
+    // console.log(y)
+
+});
+
+
+             //sendMessage(event.sender.id,messageData)
+            //sendMessage(event.sender.id,{text: "Have a KitKat"})
+          }
+
 else if (event.message.text.toLowerCase().includes("break")) {
   var x = Math.floor((Math.random() * 17));
   console.log(random_quotes[x]);
@@ -544,7 +574,7 @@ console.log(locationisend)
 {
 "content_type":"text",
 "title":"Find Related Meetup",
-"payload":"emptys_tfindmores_t" + jobrole + "s_t" + location + "s_tend"
+"payload":"emptys_tmeetups_t" + jobrole + "s_t" + location + "s_tend"
 }]
 
 
@@ -628,7 +658,7 @@ var locationisend = location;
 {
 "content_type":"text",
 "title":"Find Related Meetup",
-"payload":"emptys_tbreaks_t" + jobrole + "s_t" + location + "s_tend"
+"payload":"emptys_tmeetups_t" + jobrole + "s_t" + location + "s_tend"
 },
 {
 "content_type":"text",
