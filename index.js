@@ -535,6 +535,11 @@ console.log(locationisend)
                     }
                 },
                 "quick_replies":[
+                  {
+                  "content_type":"text",
+                  "title":"Find Related Meetup",
+                  "payload":"emptys_tfindmores_t" + jobrole + "s_t" + location + "s_tend"
+                },
 {
 "content_type":"text",
 "title":"Find More Jobs",
@@ -613,6 +618,11 @@ var locationisend = location;
                     }
                 },
                 "quick_replies":[
+                  {
+                  "content_type":"text",
+                  "title":"Find Related Meetup",
+                  "payload":"emptys_tbreaks_t" + jobrole + "s_t" + location + "s_tend"
+                  },
 {
 "content_type":"text",
 "title":"Find More Jobs",
