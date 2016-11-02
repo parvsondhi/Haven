@@ -9,6 +9,18 @@ var loc_city;
 var random_quotes = ["https://s3-us-west-1.amazonaws.com/havenchatbot/quote5-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote6-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote1-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote4-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote8-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote7-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote2-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote10-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote11-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote12-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote13-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote14-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote15-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote16-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote17-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote18-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote19-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote20-01.png"]
 
 
+function chunkSubstr(str, size) {
+  var numChunks = Math.ceil(str.length / size),
+      chunks = new Array(numChunks);
+
+  for(var i = 0, o = 0; i < numChunks; ++i, o += size) {
+    chunks[i] = str.substr(o, size);
+  }
+
+  return chunks;
+}
+
+
 
 var N = 20;
 var list = Array.apply(null, {length: N}).map(Number.call, Number)
@@ -412,7 +424,12 @@ else if (response.result.parameters.depression)
         {
           console.log(newstring[2])
           console.log(newstring[3])
-          sendButtonMessage3(event.sender.id,newstring[2],newstring[3])
+          chunks = chunkSubstr(newstring[2],280)
+          for(i=0;i<chunks.length;i++)
+          {
+            sendMessage(event.sender.id, {text:chunks[i]})
+          }
+          //sendButtonMessage3(event.sender.id,newstring[2],newstring[3])
         }
         else if (!(newstring[1].localeCompare("helpsetting"))){
           sendMessage(event.sender.id, {text: "Hi. I'm Haven and am here to help you convert your passion into profession and have fun along the way. You can say things like the following: \n\n- Find me a software engineering role\n- Find data science jobs in San Francisco\n- Find me a job in New York\n- I want to take a break\n\nOr you can just chat with me"})
