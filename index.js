@@ -816,10 +816,6 @@ console.log(locationisend)
                             "subtitle": meetupname,
                             "image_url": imageurl1 ,
                             "buttons": [{
-                                "type": "postback",
-                                "title": "View Meetup Overview",
-                                "payload":"emptys_tmeetupoverviews_t" + result + "s_t" + weburl + "s_t" + rolesend + "s_t" + locsend + "s_tend"
-                            },{
                                 "type": "web_url",
                                 "url": weburl,
                                 "title": "Go To Meetup"
