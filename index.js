@@ -5,6 +5,7 @@ var app = express();
 var apiai = require('apiai');
 var appai = apiai("c0f2b205eeaa485c8ec3b2172f750b2f");
 var loc_city;
+var sessionid = "mysession123"
 // loc_city = "austin"
 var random_quotes = ["https://s3-us-west-1.amazonaws.com/havenchatbot/quote5-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote6-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote1-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote4-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote8-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote7-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote2-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote10-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote11-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote12-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote13-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote14-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote15-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote16-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote17-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote18-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote19-01.png","https://s3-us-west-1.amazonaws.com/havenchatbot/quote20-01.png"]
 
@@ -266,7 +267,7 @@ else if (event.message.text.toLowerCase().includes("tired")) {
 
 else {
             console.log("hello " + event.message.text)
-            var requestai = appai.textRequest(event.message.text);
+            var requestai = appai.textRequest(event.message.text, {sessionId: sessionid});
 
             requestai.on('response', function(response) {
               console.log("**********************************************************")
@@ -369,7 +370,7 @@ else if (response.result.parameters.depression)
 
         else if(event.postback) {
           if(!(event.postback.payload.localeCompare("hey"))){
-            var requestai = appai.textRequest(event.postback.payload);
+            var requestai = appai.textRequest(event.postback.payload, {sessionId: sessionid});
             requestai.on('response', function(response) {
               replytext = response.result.fulfillment.speech
               sendMessage(event.sender.id,{text: replytext})
@@ -461,7 +462,7 @@ else if (response.result.parameters.depression)
         }
 
         else if (!(newstring[1].localeCompare("reset"))){
-          var requestai = appai.textRequest("reset");
+          var requestai = appai.textRequest("reset", {sessionId: sessionid});
           requestai.on('response', function(response) {
             replytext = response.result.fulfillment.speech
             sendMessage(event.sender.id,{text: replytext})
